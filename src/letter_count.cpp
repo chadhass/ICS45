@@ -8,8 +8,8 @@ int main ()
 {
 int counters[N_CHARS] = {0};
 
-    std::string input_line;
-    while (std::getline(std::cin, input_line)) {
+    string input_line;
+    while (getline(cin, input_line)) {
         count(input_line, counters);
     }
 
