@@ -31,7 +31,7 @@ char top()
 {
     if(!isEmpty())
     {
-         return buf[_top--];
+         return buf[_top];
     }
     else
     {
