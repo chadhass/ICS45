@@ -7,7 +7,7 @@ int main()
 int knots = 0; 
 cout << "Enter interger speed in knots: ";
 cin >> knots; 
-cout << "Speed in miles per miniute is" <<knots_to_miles_perminute(knots)
+cout << "Speed in miles per miniute is" <<knots_to_miles_per_minute(knots)
 <<endl; 
 
 return 0; 
