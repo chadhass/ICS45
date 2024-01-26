@@ -1,8 +1,7 @@
 #include "coins.hpp"
 #include <iostream>
 
-Coins::Coins(int q, int d, int n, int p)
-    : quarters(q), dimes(d), nickels(n), pennies(p) {}
+Coins::Coins(int q, int d, int n, int p) : quarters(q), dimes(d), nickels(n), pennies(p) {}
 
 void Coins::deposit_coins(Coins& coins) {
     quarters += coins.quarters;
@@ -11,7 +10,7 @@ void Coins::deposit_coins(Coins& coins) {
     pennies += coins.pennies;
 }
 Coins Coins::extract_exact_change(const Coins& coins) const {
-    int extractedQuarters = (quarters < coins.quarters) ? quarters : coins.quarters;
+    int extractedQiuarters = (quarters < coins.quarters) ? quarters : coins.quarters;
     int extractedDimes = (dimes < coins.dimes) ? dimes : coins.dimes;
     int extractedNickels = (nickels < coins.nickels) ? nickels : coins.nickels;
     int extractedPennies = (pennies < coins.pennies) ? pennies : coins.pennies;
@@ -30,13 +29,15 @@ void Coins::print(std::ostream& out) const {
 }
 
 std::ostream& operator<<(std::ostream& out, const Coins& coins) {
-     coins.print(out);
-    return out;}
+     Coins.print(out);
+    return out;
+    }
+
 Coins coins_required_for_cents(int amount_in_cents) {
     int q = amount_in_cents / CENTS_PER_QUARTER;
     amount_in_cents %= CENTS_PER_QUARTER;
     int d = amount_in_cents / CENTS_PER_DIME;
-    amount_in_cents %= CENTS_PER_DIME;
+    amount_in_cents %= CENTS_PER_DIME; 
     int n = amount_in_cents / CENTS_PER_NICKEL;
     amount_in_cents %= CENTS_PER_NICKEL;
     int p = amount_in_cents;
