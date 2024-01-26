@@ -45,7 +45,8 @@ Coins coins_required_for_cents(int amount_in_cents) {
 }
 
 void print_Cents(int cents, std::ostream& out) {
-    out << "$" << cents / 100 << "." << cents % 100;}
+    out << cents;
+    }
 
 Coins ask_for_coins(std::istream& in, std::ostream& out) {
     int q, d, n, p;
