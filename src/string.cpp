@@ -58,24 +58,25 @@ int String::indexOf(char c) const {
 
 int String::indexOf(String s) const{
     int len = size(); 
-    int subStr = s.size(); 
-    for(int i = 0; i <= len - subStr; ++i){
-    for(int j = 0; j <subStr; ++j){
-    if(buf[i+j] != s[j]){
-    break; 
+    int subStr = s.size();
+    for(int i = 0; i <len-subStr; ++i)
+    for(int j = 0; j < subStr; ++j)
+    { 
+        if(buf[i+j] != s[j]){
+        break;
+        }
+    }
+    if(j ==subStr){ return i;}
+    }
     return -1; 
-    }
+}
 
-bool String::operator==(String s) const{ 
+bool String::operator ==(String s) const {
     int len1 = size(); 
-    int len2 = s.size(); 
-    if(len1 != len2){
-    return false; 
-    }
-    for(int i =0; i<len1; ++i)
-    {
-    if(buf[i] != s[i]){ 
-    return false; 
+    int len2 = s.size();
+    if(len1 != len2){return false;}
+    for(int i =0; i <len1; ++i) {
+        if(buf[i] != s[i]){ return false; }
     }
     return true; 
 }
