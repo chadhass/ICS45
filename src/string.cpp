@@ -135,17 +135,20 @@ String &String::operator+=(String s){
 
 
 char *String::strdup(const char *src) {
-    int len = 0; 
-    while(src[len] != '\0') {
-    len++;
-    }
-    char *dup = new char[len +1]; 
-    for(int i =0; i<len; ++i){
-    dup[i] = src[i];
-    }
-    dup[len] = '\0'; 
-    return dup;
+    int len = strlen(src) +1; 
+    char str = new char[length]; 
+
+    strcpy(str,src);
+
+    return str; 
 }
+int String::Strlen(const char *s){
+int i =0; 
+while(s[i] != '\0'){
+i++
+}
+return i; 
+} 
 
 const char *String::strchr(const char *str, char c){
     while(*str != '\0'){
