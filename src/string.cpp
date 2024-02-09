@@ -110,18 +110,22 @@ bool String::operator>=(String s) const {
 }
 
 String String::operator+(String s) const{
-    int len1 = size(); 
-    int len2 = s.size(); 
-    String result(len1+len2); 
-    int i; 
-    for(int i =0; i<len1; ++i){
-    result.buf[i] = buf[i]; 
+    int length = this-> size();
+    int length2 = s.size();
+    char *newStr = new char[length +length2 +1]; 
+
+    for(int i = 0; i <length; ++i){
+    newStr[i] = this->buf[i]; 
     }
-    for(int j = 0; j<len2; ++j){
-    result.buf[len1 +j] = s.buf[j];
+    for(int i = 0; i < length2; ++i){
+    newStr[length +i] = s.buf[i];
     }
-    result.buf[len1 + len2] = '\0'; 
-    return result; 
+
+    newStr[length + length2] = '\0';
+
+    String newString(newStr); 
+
+    return newString; 
 }
 
 String &String::operator+=(String s){ 
@@ -129,13 +133,6 @@ String &String::operator+=(String s){
     return *this; 
 }
 
-void String::print(std::ostream &out) const{ 
-   // char* ptr = buf;
-}
-
-void String::read(std::istream &in){
-   // in >>buf; 
-}
 
 char *String::strdup(const char *src) {
     int len = 0; 
@@ -156,7 +153,7 @@ const char *String::strchr(const char *str, char c){
             return str; 
             }
             ++str; 
-             }
+ :            }
         return nullptr; 
 }
 
