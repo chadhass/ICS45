@@ -59,7 +59,7 @@ int String::indexOf(char c) const {
 int String::indexOf(String s) const{
     int len = size(); 
     int subStr = s.size();
-    for(int i = 0; i <len-subStr; ++i)
+    for(int i = 0; i <len-subStr; ++i){
     for(int j = 0; j < subStr; ++j)
     { 
         if(buf[i+j] != s[j]){
