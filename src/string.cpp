@@ -60,6 +60,7 @@ int String::indexOf(String s) const{
     int len = size(); 
     int subStr = s.size();
     for(int i = 0; i <len-subStr; ++i){
+    int j; 
     for(int j = 0; j < subStr; ++j)
     { 
         if(buf[i+j] != s[j]){
