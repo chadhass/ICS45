@@ -113,11 +113,12 @@ String String::operator+(String s) const{
     int len1 = size(); 
     int len2 = s.size(); 
     String result(len1+len2); 
+    int i; 
     for(int i =0; i<len1; ++i){
     result.buf[i] = buf[i]; 
     }
-    for(int i = 0; i<len2; ++i){
-    result.buf[len1 +i] = s.buf;
+    for(int j = 0; j<len2; ++j){
+    result.buf[len1 +j] = s.buf[j];
     }
     result.buf[len1 + len2] = '\0'; 
     return result; 
@@ -129,17 +130,17 @@ String &String::operator+=(String s){
 }
 
 void String::print(std::ostream &out) const{ 
-    out << buf; 
+   // char* ptr = buf;
 }
 
 void String::read(std::istream &in){
-    in >>buf; 
+   // in >>buf; 
 }
 
 char *String::strdup(const char *src) {
     int len = 0; 
     while(src[len] != '\0') {
-    len++
+    len++;
     }
     char *dup = new char[len +1]; 
     for(int i =0; i<len; ++i){
@@ -150,7 +151,7 @@ char *String::strdup(const char *src) {
 }
 
 const char *String::strchr(const char *str, char c){
-    while(*str != '\0'{
+    while(*str != '\0'){
         if(*str == c){
             return str; 
             }
@@ -159,22 +160,22 @@ const char *String::strchr(const char *str, char c){
         return nullptr; 
 }
 
-const chat *String::strstr(const char *haystack, const char *needle){
-    int needlelEN = 0;  
+const char  *String::strstr(const char *haystack, const char *needle){
+    int needleLen = 0;  
     while(needle[needleLen] != '\0'){
     ++needleLen; 
     }
 
     int haystackLen = 0; 
-    while(haystack[haystackLen] != '\0' {
+    while(haystack[haystackLen] != '\0') {
         int i = 0; 
         while(haystack[haystackLen +i]  == needle[i]){
-        ++i 
+        ++i; 
         if(needle[i] == '\0'){
         return haystack + haystackLen; 
         }
         }
-       ++ haystackLen
+       ++haystackLen;
     }
 return nullptr; 
 }
