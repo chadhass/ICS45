@@ -1,8 +1,6 @@
 #ifndef STRING_HPP
 #define STRING_HPP
-
 #include <iosfwd>
-
 class String {
 public:
     // constructs this string from a C string, defaults to empty string
@@ -92,7 +90,6 @@ private:
     // Useful for implementing reverse() and operator +()
     explicit String(int length);
 };
-
 std::ostream &operator<<(std::ostream &out, String s);
 std::istream &operator>>(std::istream &in, String &s);
 #endif
