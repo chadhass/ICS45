@@ -85,7 +85,7 @@ bool String::operator ==(String s) const {
 bool String::operator>(String s) const{
     int len1 = size(); 
     int len2 = s.size(); 
-    int minLen = len1 < len ? len1 :len2; 
+    int minLen = len1 < len2 ? len1 :len2; 
     for(int i = 0; i<minLen; ++i){
     if(buf[i] > s[i]){
     return true; 
