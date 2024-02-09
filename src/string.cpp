@@ -96,7 +96,7 @@ bool String::operator>(String s) const{
     }
     return len1 > len2; 
     }
-
+}
 bool String::operator<(String s) const { 
     return !(*this==s || *this >s); 
 }
