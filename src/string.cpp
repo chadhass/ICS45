@@ -8,15 +8,25 @@ String::String(const String &s){
     buf = strdup(s.buf); 
 }
 
+
 void String::swap(String &s){
     char *temp = buf; 
     buf = s.buf; 
     s.buf = temp; 
 }
 
-String &String::operator=(String s){
-    swap(s); 
+String &String::operator=(const String &s){
+    if(this != &s)
+    { buf = strdup(s.buf); }
     return *this; 
+}
+
+String &String::operator==(String &&s){
+if(this != &s){
+buf = s.buf; 
+s.buf= nullpetr;
+}
+return *this; 
 }
 
 String::~String(){
@@ -26,22 +36,24 @@ char &String::operator[](int index){
     return buf[index]; 
 }
 
-int String::size() const{
-    int count =0; 
-    while(buf[count] != '\0')
-    {   
-        count++; 
+const char &String::operator[](int index) const{
+    return buf[index];
     }
-    return count; 
+
+
+
+int String::size() const{
+    return strlen(buf); 
 }
 
 String String::reverse() const{
-    int len = size();
+    int len = strlen(buf); 
     String rev(len);
     for(int i=0; i <len; ++i)
     {
     rev.buf[i]=buf[len-i-1];
     }
+    rev.buf[len] = '\0'; 
     return rev; 
 }
 
@@ -73,40 +85,23 @@ int String::indexOf(String s) const{
 }
 
 bool String::operator ==(String s) const {
-    int len1 = size(); 
-    int len2 = s.size();
-    if(len1 != len2){return false;}
-    for(int i =0; i <len1; ++i) {
-        if(buf[i] != s[i]){ return false; }
-    }
-    return true; 
+    return(strcmp(buf, s.buf)==0); 
 }
 
 bool String::operator>(String s) const{
-    int len1 = size(); 
-    int len2 = s.size(); 
-    int minLen = len1 < len2 ? len1 :len2; 
-    for(int i = 0; i<minLen; ++i){
-    if(buf[i] > s[i]){
-    return true; 
-    }
-    else if(buf[i] <s[i]) {
-    return false; 
-    }
-    }
-    return len1 > len2; 
+    return(strcmp(buf,s.buf)>0); 
  }
 
 bool String::operator<(String s) const { 
-    return !(*this==s || *this >s); 
+    return(strcmp(buf, s.buf)<0); 
 }
 
 bool String::operator<=(String s) const {
-    return *this < s || *this ==s; 
+    return(strcmp(buf,s.buf) <= 0);
 }
 
 bool String::operator>=(String s) const {
-    return *this > s || *this ==s; 
+    return(strcmp(buf, s.buf) >= 0); 
 }
 
 String String::operator+(String s) const{
@@ -128,7 +123,7 @@ String String::operator+(String s) const{
     return newString; 
 }
 
-String &String::operator+=(String s){ 
+String&String::operator+=(String s){ 
     *this = *this + s; 
     return *this; 
 }
@@ -136,16 +131,16 @@ String &String::operator+=(String s){
 
 char *String::strdup(const char *src) {
     int len = strlen(src) +1; 
-    char str = new char[length]; 
+    char* str = new char[len]; 
 
     strcpy(str,src);
 
     return str; 
 }
-int String::Strlen(const char *s){
+int String::strlen(const char *s){
 int i =0; 
 while(s[i] != '\0'){
-i++
+i++;
 }
 return i; 
 } 
@@ -156,7 +151,7 @@ const char *String::strchr(const char *str, char c){
             return str; 
             }
             ++str; 
- :            }
+        }
         return nullptr; 
 }
 
@@ -184,3 +179,19 @@ String::String(int length) {
     buf = new char[length +1]; 
     buf[0] = '\0'; 
 }
+
+void Sring::print(strd::ostream &out) const{ out <<buf; }
+
+void String::read(std::istream &in){
+    buf = stdup[2048]; }
+
+char stdup(const char *src) {
+    int length = strlen(src) + 1; 
+    char * str = new char[length]; 
+
+    strcpy(str,src)
+
+    return str; 
+}
+
+
