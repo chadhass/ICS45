@@ -90,13 +90,13 @@ bool String::operator>(String s) const{
     if(buf[i] > s[i]){
     return true; 
     }
-    else if(buf[i] <s[i])
-    {
+    else if(buf[i] <s[i]) {
     return false; 
     }
-    return len1 > len2; 
     }
-}
+    return len1 > len2; 
+ }
+
 bool String::operator<(String s) const { 
     return !(*this==s || *this >s); 
 }
