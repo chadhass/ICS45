@@ -13,7 +13,6 @@ TEST(ListTests, FromStringBasic) {
     // ASSERT instead of EXPECT means: end the test here if this fails, do not try to continue
     // running. This is useful to prevent early crashes.
     ASSERT_NE(foo_list->next, nullptr);
-
     foo_list = foo_list->next;
     EXPECT_EQ(foo_list->data, 'o');
     ASSERT_NE(foo_list->next, nullptr);
