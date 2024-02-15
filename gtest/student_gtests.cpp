@@ -115,7 +115,7 @@ TEST(ListTests, Append){
 Node* hi = list::from_string("hi");
 Node* hey = list::from_string("hey");
 Node* hihey = list::append(hi, hey);
-Node* hh = list::from_String("hihey");
+Node* hh = list::from_string("hihey");
 EXPECT_EQ(list::compare(hihey,hh),0);
 
 list::free(hi);
@@ -139,7 +139,7 @@ Node* hw = list::from_string("HelloWorld");
 Node* w = list::from_string(World);
 EXPECT_EQ(list::index(hw,w),5);
 
-Node* w = list::from_string("d");
+Node* d = list::from_string("d");
 EXPECT_EQ(list::index(hw,w), 9);
 
 Node* empty = list::from_string("");
