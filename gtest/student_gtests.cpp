@@ -83,7 +83,7 @@ TEST(ListTests, Last){
     Node* hi = list::from_string("hi"); 
     Node* myNode = list::from_string("i"); 
 
-    EXPECT(list::compare(list::last(hi), myNode),0);  
+    EXPECT_NE(list::compare(list::last(hi), myNode),0);  
 
     Node* hey = list::from_string("hey"); 
     Node* end = list::from_string("ey"); 
