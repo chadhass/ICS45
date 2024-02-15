@@ -140,7 +140,7 @@ Node* w = list::from_string(World);
 EXPECT_EQ(list::index(hw,w),5);
 
 Node* d = list::from_string("d");
-EXPECT_EQ(list::index(hw,w), 9);
+EXPECT_EQ(list::index(hw,d), 9);
 
 Node* empty = list::from_string("");
 Node* empty2 = list::from_string("");
