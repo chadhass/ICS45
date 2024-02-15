@@ -86,109 +86,106 @@ TEST(ListTests, Last){
     EXPECT(list::compare(last(hi), myNode),0);  
 
     Node* hey = list::from_string("hey"); 
-    Node* end = list::from_string("ey")
+    Node* end = list::from_string("ey"); 
     EXPECT_NE(list::compare(last(hey), end), 0); 
 
     list::free(hi); 
     list::free(myNode); 
-    list::free(hey); 
-    list::free(end); 
+    list::free(hey);
+    list::free(end);
 }
 
-TEST(ListsTests, Copy){
+Test(ListsTests, Copy){
+
 Node* const head = list::from_string("hi"); 
 Node* myNode = list::copy(head); 
-EXPECT_EQ(list::compare(head, myNode),0); 
+EXPECT_EQ(list::compare(head, myNode),0);
 
-Node* const empty = list::from_string(""); 
-Node* newNodes = list::copy(empty); 
-EXPECT_EQ(list::compare(empty, newNodes),0); 
+Node* const empty = list::from_string("");
+Node* newNodes = list::copy(empty);
+EXPECT_EQ(list::compare(empty, newNodes),0);
 
-list::free(head); 
-list::free(myNode); 
-list::free(empty); 
-list::free(newNodes); 
+list::free(head);
+list::free(myNode);
+list::free(empty);
+list::free(newNodes);
 }
+
 TEST(ListTests, Append){
+Node* hi = list::from_string("hi");
+Node* hey = list::from_string("hey");
+Node* hihey = list::append(hi, hey);
+Node* hh = list::from_String("hihey");
+EXPECT_EQ(lost::compare(hihey,hh),0);
 
-Node* hi = list::from_string("hi"); 
-Node* hey = list::from_string("hey"); 
-
-Node* hihey = list::append(hi, hey); 
-Node* hh = list::from_String("hihey"); 
-EXPECT_EQ(lost::compare(hihey,hh),0); 
-
-list::free(hi); 
-list::free(hey); 
-list::free(hihey); 
-list::free(hh); 
+list::free(hi);
+list::free(hey);
+list::free(hihey);
+list::free(hh);
 }
 
 TEST(ListTests, Nth){
-Node* hw = list::from_string("HelloWorld"); 
+Node* hw = list::from_string("HelloWorld");
+Node* three = list::nth(hw, 3);
+EXPECT_EQ(three-> data, 'l');
 
-Node* three = list::nth(hw, 3); 
-EXPECT_EQ(three-> data, 'l'); 
-
-Node* five = list::nth(hw,5); 
-EXPECT_EQ(five->data, 'W'); 
-
-list::free(hw); 
+Node* five = list::nth(hw,5);
+EXPECT_EQ(five->data, 'W');
+list::free(hw);
 }
 
 TEST(ListTests,Index){
-Node* hw = list::from_string("HelloWorld"); 
-Node* w = list::from_string(World); 
-EXPECT_EQ(list::index(hw,w),5); 
+Node* hw = list::from_string("HelloWorld");
+Node* w = list::from_string(World);
+EXPECT_EQ(list::index(hw,w),5);
 
-Node* w = list::from_string("d"); 
-EXPECT_EQ(list::index(hw,w)9); 
+Node* w = list::from_string("d");
+EXPECT_EQ(list::index(hw,w)9);
 
-Node* empty = list::from_string(""); 
-Node* empty2 = list::from_string(""); 
+Node* empty = list::from_string("");
+Node* empty2 = list::from_string("");
 
-EXPECT_EQ(list::index(empty, empty2),0); 
+EXPECT_EQ(list::index(empty, empty2),0);
 
-list::free(hw); 
-list::free(w); 
+list::free(hw);
+list::free(w);
 }
 
 TEST(ListTests, FindChar){
-Node* hw = list::from_string("HelloWorld"); 
-char w = 'W'; 
-Node* world  = list::find_char(hw, w); 
-node* findW = list::from_string("World"); 
-EXPECT_EQ(list::compare(world, findW),0); 
+Node* hw = list::from_string("HelloWorld");
+char w = 'W';
+Node* world  = list::find_char(hw, w);
+Node* findW = list::from_string("World"); 
+EXPECT_EQ(list::compare(world, findW),0);
 
-list::free(hw); 
-list::free(findW); 
+list::free(hw);
+list::free(findW);
 }
 
 TEST(ListTests, FindList){
-Node* sen = list::from_string("have a good day"); 
-Node* good = list::from_string("good"); 
-Node* lf = list::find_list(sen, good); 
-EXPECT_EQ(list::compare(lf, list::from_string("good day")), 0);  
-list::free(lf); 
-list::free(sen); 
+Node* sen = list::from_string("have a good day");
+Node* good = list::from_string("good");
+Node* lf = list::find_list(sen, good);
+EXPECT_EQ(list::compare(lf, list::from_string("good day")), 0);
+list::free(lf);
+list::free(sen);
 }
 
 TEST(ListTests, Reverse){
+Node* hw = list::from_string("HelloWorld");
+Node* rev = list::from_string("dlroWolleH");
+Node* revTest = list::reverse(hw);
+EXPECT_EQ(list::compare(revTest, rev),0);
+Node* empty = list::from_string("");
+Node* rev2 = list::from_string("");
+Node revTest2 = list::reverse(empty);
+EXPECT_EQ(list::compare(rev2, revTest2), 0);
 
-Node* hw = list::from_string("HelloWorld"); 
-Node* rev = list::from_string("dlroWolleH"); 
-Node* revTest = list::reverse(hw); 
-EXPECT_EQ(list::compare(revTest, rev),0); 
-Node* empty = list::from_string(""); 
-Node* rev2 = list::from_string(""); 
-Node revTest2 = list::reverse(empty); 
-EXPECT_EQ(list::compare(rev2, revTest2), 0); 
-
-list::free(hw); 
-list::free(rev); 
+list::free(hw);
+list::free(rev);
 list::free(revTest); 
-list::free(empty); 
-list::free(rev2); 
-list::free(revTest2); 
-
+list::free(empty);
+list::free(rev2);
+list::free(revTest2);
 }
+
