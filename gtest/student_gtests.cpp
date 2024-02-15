@@ -67,7 +67,7 @@ TEST(ListTests, Copy) {
     Node* const head = list::from_string("foo"); 
     Node* myNode = list::copy(head); 
 
-    EXPECT_EQ(list::compare(head, myNode, 0); 
+    EXPECT_EQ(list::compare(head, myNode), 0); 
 
     Node* const hi = list::from_string(""); 
     Node* secondhi = list::copy(hi); 
