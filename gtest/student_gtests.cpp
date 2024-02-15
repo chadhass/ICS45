@@ -95,7 +95,7 @@ TEST(ListTests, Last){
     list::free(end);
 }
 
-Test(ListsTests, Copy){
+TEST(ListsTests, Copy){
 
 Node* const head = list::from_string("hi"); 
 Node* myNode = list::copy(head); 
