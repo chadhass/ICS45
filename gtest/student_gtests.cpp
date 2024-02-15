@@ -83,7 +83,7 @@ TEST(ListTests, Last){
     Node* hi = list::from_string("hi"); 
     Node* myNode = list::from_string("i"); 
 
-    EXPECT(list::compare(last(hi), myNode),0);  
+    EXPECT(list::compare(list::last(hi), myNode),0);  
 
     Node* hey = list::from_string("hey"); 
     Node* end = list::from_string("ey"); 
@@ -116,7 +116,7 @@ Node* hi = list::from_string("hi");
 Node* hey = list::from_string("hey");
 Node* hihey = list::append(hi, hey);
 Node* hh = list::from_String("hihey");
-EXPECT_EQ(lost::compare(hihey,hh),0);
+EXPECT_EQ(list::compare(hihey,hh),0);
 
 list::free(hi);
 list::free(hey);
@@ -140,7 +140,7 @@ Node* w = list::from_string(World);
 EXPECT_EQ(list::index(hw,w),5);
 
 Node* w = list::from_string("d");
-EXPECT_EQ(list::index(hw,w)9);
+EXPECT_EQ(list::index(hw,w), 9);
 
 Node* empty = list::from_string("");
 Node* empty2 = list::from_string("");
@@ -178,7 +178,7 @@ Node* revTest = list::reverse(hw);
 EXPECT_EQ(list::compare(revTest, rev),0);
 Node* empty = list::from_string("");
 Node* rev2 = list::from_string("");
-Node revTest2 = list::reverse(empty);
+Node* revTest2 = list::reverse(empty);
 EXPECT_EQ(list::compare(rev2, revTest2), 0);
 
 list::free(hw);
