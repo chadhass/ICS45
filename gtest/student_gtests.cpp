@@ -136,7 +136,7 @@ list::free(hw);
 
 TEST(ListTests,Index){
 Node* hw = list::from_string("HelloWorld");
-Node* w = list::from_string(World);
+Node* w = list::from_string("World");
 EXPECT_EQ(list::index(hw,w),5);
 
 Node* d = list::from_string("d");
