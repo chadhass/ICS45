@@ -110,7 +110,7 @@ void String::read(std::istream &in){
 }
 
 String::~String(){
-    list::free(this->head); 
+    list::free(head); 
 } 
 
 std::ostream &operator<<(std::ostream &out, const String &s){
