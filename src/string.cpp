@@ -95,8 +95,14 @@ String String::operator+(const String &s) const{
 }
 
 String &String::operator+=(const String &s){
-    head = list::append(this->head, s.head); 
-    return *this; 
+    if(s.head != nullptr{
+        if(head == nullputr){ head = list::copy(s.head); }
+        else(
+        Node* last = list::last(head); 
+        last->next = list::copy(s.head); 
+        }
+    }
+    return *this
 } 
 
 void String::print(std::ostream &out) const{
