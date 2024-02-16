@@ -95,13 +95,7 @@ String String::operator+(const String &s) const{
 }
 
 String &String::operator+=(const String &s){
-    if(s.head != nullptr){
-        if(head == nullptr){ head = list::copy(s.head); }
-        else(
-        list::Node* last = list::last(head); 
-        last->next = list::copy(s.head); 
-        }
-    }
+    head = list;;append(head, s.head); 
     return *this
 } 
 
