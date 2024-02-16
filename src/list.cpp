@@ -116,12 +116,16 @@ Node* reverse(Node*head){
 }
 
 Node* append(Node* lhs, Node* rhs){
+    if(lhs == nullptr){
+    return copy(rhs); 
+    }
+
     Node* l = copy(lhs); 
-    Node* r = copy(rhs); 
+    
+    Node* end = last(l); 
 
-    if(lhs == nullptr) { return r;}
-    last(l)->next = r; 
-
+    end->next = copy(rhs); 
+    
     return l; 
 }
 
