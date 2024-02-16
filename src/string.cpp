@@ -96,7 +96,7 @@ String String::operator+(const String &s) const{
 
 String &String::operator+=(const String &s){
     head = list::append(head, s.head); 
-    return *this
+    return *this;
 } 
 
 void String::print(std::ostream &out) const{
