@@ -122,9 +122,9 @@ Node* append(Node* lhs, Node* rhs){
 
     Node* l = copy(lhs); 
     
-    Node* end = last(l); 
+    Node* r = copy(rhs);  
 
-    end->next = copy(rhs); 
+    last(l)->next = r;  
     
     return l; 
 }
