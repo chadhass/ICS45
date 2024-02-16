@@ -145,8 +145,9 @@ Node* find_char(Node*head, char c){
             h  = h->next; 
         }
         else{
-        return h; 
+            return h; 
         }
+    }
     return h; 
 }
 
@@ -154,10 +155,10 @@ Node* find_list(Node* haystack, Node* needle){
     if(haystack ==nullptr){ return nullptr; }
     Node* h = haystack; 
     Node* n = needle; 
-    const int needleLen - kength(needle); 
+    const int needleLen =  length(needle); 
     Node* find = nth(haystack, length(needle)-1); 
     bool Nfound = false; 
-    while(find != nullptr || Nfound == true)
+    while(find != nullptr && !Nfound)
     {
         if(compare(n,h, needleLen) == 0)
         {
@@ -180,7 +181,7 @@ Node* nth(Node* head, int n){
 }
 
 Node* last(Node* head){
-    if(head == nullptr) { return nullptr}
+    if(head == nullptr) { return nullptr;}
     Node* last = head; 
     while( last -> next != nullptr){
         last = last->next; 
