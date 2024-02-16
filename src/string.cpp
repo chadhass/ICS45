@@ -87,7 +87,7 @@ std::strong_ordering String::operator<=>(const String &s) const{
 } 
 
 String String::operator+(const String &s) const{ 
-    String add(*add); 
+    String add(*this); 
 
     str += s; 
 
