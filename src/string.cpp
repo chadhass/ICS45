@@ -17,7 +17,7 @@ String::String(const String &s){
 
 String::String(String &&s){ 
     head = s.head; 
-    s.head = nullptr;  
+    s.head =  nullptr; 
 }
 
 void String::swap(String &s){
