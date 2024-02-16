@@ -17,8 +17,7 @@ String::String(const String &s){
 
 String::String(String &&s){ 
     head = s.head; 
-    s.head = nullptr; 
-    list::free(s.head); 
+    s.head = nullptr;  
 }
 
 void String::swap(String &s){
@@ -47,7 +46,7 @@ return *this;
 }
 
 bool String::in_bounds(int index) const { 
-    return(indxex< list::length(head)); 
+    return(index < list::length(head)); 
 }
 
 char String::operator[](int index) const{
@@ -70,26 +69,24 @@ String String::reverse() const{
 }
 
 int String::indexOf(char c) const {
-    int index = list::find_char(this->head, c);
-    return list::index(this->head, index); 
+    return list::index(this-> head, list::find_char(this->head,c));
 }
 
 int String::indexOf(const String &s) const{ 
-    int index = list::find_list(this->head, s.head); 
-    return list::index(this->head, index); 
+    return list::index(this->head,list::find_list(this->head,s.head)); 
 }
 
 //compare string(NOT assign) 
 bool String::operator==(const String &s) const{ 
-    return list::compare(this->, s.head) ==0; 
+    return list::compare(this->head, s.head) ==0; 
 }
 
 
-std::strong_orderderingString::operator<=>(const String &s) const{
+std::strong_ordering String::operator<=>(const String &s) const{
     return list::compare(head, s.head) <=> 0; 
 } 
 
-Sting Stirng::operator+(const String &s) const{ 
+String String::operator+(const String &s) const{ 
     String add; 
     add.head = list::append(this->head, s.head); 
     list::free(head); 

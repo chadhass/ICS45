@@ -115,7 +115,7 @@ Node* reverse(Node*head){
     return prev; 
 }
 
-Node* appent(Node* lhs, Node* rhs){
+Node* append(Node* lhs, Node* rhs){
     Node* l = copy(lhs); 
     Node* r = copy(rhs); 
 
