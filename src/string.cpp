@@ -87,10 +87,11 @@ std::strong_ordering String::operator<=>(const String &s) const{
 } 
 
 String String::operator+(const String &s) const{ 
-    String add; 
-    add.head = list::append(this->head, s.head); 
-    list::free(head); 
-    return add; 
+    String add(*add); 
+
+    str += s; 
+
+    return str; 
 }
 
 String &String::operator+=(const String &s){
