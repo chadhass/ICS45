@@ -36,7 +36,7 @@ Picture& Picture::operator=(Picture&& other){
         temp = temp-> next; 
         delete del->shape; 
         delete del; 
-}
+    }
 
 this->head = other.head; 
 this-> tail = other.tail; 
