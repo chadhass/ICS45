@@ -14,7 +14,7 @@ struct Point{
 class Shape{
 public:
     //construct this Shape with given center and name 
-    Shape(Point center, std::string_name); 
+    Shape(Point center, std::string name); 
     //prints shapes name and cordinate in this format followed by a newline
     void print(std::ostream& out) const; 
     //delete assignment to prevent accidental slicing 
