@@ -18,7 +18,7 @@ public:
     //prints shapes name and cordinate in this format followed by a newline
     void print(std::ostream& out) const; 
     //delete assignment to prevent accidental slicing 
-    Shape& operator=(const Shape& other)=delete; 
+    Shape& operator=(const Shape& other); 
     //computes and returns the area of this Shape 
     virtual double area() const = 0; 
     //draws this Shape using graphics 
