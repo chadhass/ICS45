@@ -29,6 +29,7 @@ public:
     //clean up any sub-storage owned by this Shape object 
     virtual ~Shape() = default; 
     protected:
+    Shape(const Shape& other) = default; 
     //protect the copy constructor to be used by clone()
     private: 
     //position coordinares, used to illustrate inheritance 
