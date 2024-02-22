@@ -69,7 +69,7 @@ void Picture::print_all(std::ostream& out) const{
     ListNode* n = head; 
     while(n!=nullptr){
         Shape* currentShape = n->shape; 
-        pShape->prnt(out); 
+        pShape->print(out); 
         pShape->draw(out); 
         n = n->next; 
     }
