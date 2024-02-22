@@ -10,8 +10,10 @@ Picture();
 Picture(const Picture& other); 
 Picture(Picture&& other); 
 void swap(Picture& other); 
-Picture& operator=(const Picture& other); 
+
+Picture& operator=(const Picture& other);
 Picture& operator=(Picture&& other); 
+
 void add(const Shape& shape); 
 void print_all(std::ostream& out) const; 
 void draw_all(std::ostream &out) const; 

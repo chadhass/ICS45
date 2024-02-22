@@ -4,6 +4,7 @@
 
 Picture::Picture():head(nullptr), tail(nullptr){
 }
+
 //copy and move constructors 
 Picture::Picture(const Picture& other): head(nullptr), tail(nullptr){
     ListNode* p = other.head; 
@@ -22,7 +23,8 @@ void Picture::swap(Picture& other){
     std::swap(tail,other.tail); 
 }
 
-Picture& Picture::operator=(const Picture& other){
+Picture& operator=(const Picture& other)
+{
     Picture p(other); 
     swap(p); 
     return *this; 
