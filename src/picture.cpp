@@ -5,7 +5,7 @@
 Picture::Picture():head(nullptr), tail(nullptr){
 }
 //copy and move constructors 
-Picture::Picture(const Picture& other: head(nullptr), tail(nullptr){
+Picture::Picture(const Picture& other): head(nullptr), tail(nullptr){
     ListNode* p = other.head; 
     while(p != nullptr){
     this->add(*(p->shape)); 
