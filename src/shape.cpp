@@ -14,10 +14,7 @@ double Shape::area() const
 return 0.0; 
 }
 
-void Shape::draw(std::ostream& out) const
-{ 
-}
-Shape* Shape::clone const{ 
+Shape* Shape::clone() const{ 
 return nullptr; 
 }
 
