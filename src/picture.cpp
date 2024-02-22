@@ -19,7 +19,7 @@ Picture::Picture(Picture&& other): head(other.head), tail(other.tail){
 
 void Picture::swap(Picture& other){
     std::swap(head, other.head); 
-    std::(tail,other.tail); 
+    std::swap(tail,other.tail); 
 }
 
 Picture& Picture::operator=(const Picture& other){
