@@ -23,7 +23,7 @@ void Picture::swap(Picture& other){
     std::swap(tail,other.tail); 
 }
 
-Picture& operator=(const Picture& other)
+Picture& Picture::operator=(const Picture& other)
 {
     Picture p(other); 
     swap(p); 
