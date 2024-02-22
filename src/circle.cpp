@@ -3,7 +3,7 @@
 #include <iostream>
 #include <numbers>
 
-Circle::Circle(Point center, std::name, int radius): Shape(center,name), radius(raidus){
+Circle::Circle(Point center, std::string name, int radius): Shape(center,name), radius(raidus){
 } 
 double Circle::area() const{
     return std::numbers::pi * radius * radius; 
