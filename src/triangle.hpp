@@ -6,7 +6,7 @@
 #define TRIANGLE_HPP
 //class triangle 
 
-class Triangke: public Shape{ 
+class Triangle: public Shape{ 
 
     public: 
     Triangle(Point center, std::string name, int height, int base); 

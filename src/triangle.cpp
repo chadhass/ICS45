@@ -4,7 +4,8 @@
 
 Triangle::Triangle(Point center, std::string name, int height, int base): 
 Shape(center, name), height(height), base(base){
-} 
+}
+
 double Triangle::area() const{ 
     return 0.5*height*base; 
 } 
