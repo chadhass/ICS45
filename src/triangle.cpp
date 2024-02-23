@@ -20,7 +20,7 @@ void Triangle::draw(std::ostream&out) const{
             out << '*'; 
         }
     }
-    out < '\n'; 
+    out << '\n'; 
     }
 }
 
