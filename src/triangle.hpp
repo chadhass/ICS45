@@ -1,3 +1,27 @@
 #include "shape.hpp"
+#include <algorithm> 
+#include <iostream> 
 
-// class Triangle
+#ifndef TRIANGLE_HPP 
+#define TRIANGLE_HPP
+//class triangle 
+
+class Triangke: public Shape{ 
+
+    public: 
+    Triangle(Point center, std::string name, int height, int base); 
+    
+    double area() const override; 
+    void draw(std::ostream& out) const override; 
+    Triangle* clone() const override; 
+
+    protected: 
+    Triangle(const Triangle& other) = default; 
+
+    private: 
+    int height; 
+    int base; 
+
+}; 
+
+#endif 
