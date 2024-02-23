@@ -102,7 +102,7 @@ Picture::~Picture(){
         ListNode* del = cur; 
         cur = cur->next; 
         delete del->shape; 
-        del del; 
+        delete del; 
     }
     head=nullptr; 
     tail=nullptr; 
