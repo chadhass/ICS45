@@ -96,7 +96,7 @@ double Picture::total_area() const{
     return area; 
 }
 
-Picture~Picture(){
+Picture::~Picture(){
     ListNode* n = head; 
     while(n != nullptr){
         ListNode* del = cur; 
