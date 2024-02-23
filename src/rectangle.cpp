@@ -9,7 +9,7 @@ double Rectangle::area()const{
     return area; 
 }
 
-void Rectangle::draw(Std::ostream& out) const{
+void Rectangle::draw(std::ostream& out) const{
     for(int i = 0; i<height; i+=2){
         for(int j=0;j<width; ++j){
             out << '*';
