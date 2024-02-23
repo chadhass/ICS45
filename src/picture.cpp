@@ -64,7 +64,7 @@ void Picture::add(const Shape& shape){
         tail =n; 
     }
 }
-i
+
 void Picture::print_all(std::ostream& out) const{
     ListNode* n = head; 
     while(n!=nullptr){
