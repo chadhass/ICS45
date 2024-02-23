@@ -68,7 +68,7 @@ void Picture::add(const Shape& shape){
 void Picture::print_all(std::ostream& out) const{
     ListNode* n = head; 
     while(n!=nullptr){
-        Shape* currentShape = n->shape; 
+        Shape* pShape  = n->shape; 
         pShape->print(out); 
         pShape->draw(out); 
         n = n->next; 
@@ -98,7 +98,7 @@ double Picture::total_area() const{
 
 Picture~Picture(){
     ListNode* n = head; 
-    while(current != nullptr){
+    while(n != nullptr){
         ListNode* del = cur; 
         cur = cur->next; 
         delete del->shape; 
