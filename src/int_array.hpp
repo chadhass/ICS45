@@ -35,7 +35,7 @@ friend void swap(Array& lhs, Array& rhs) noexcept{
 Array& operator=const(const Array& other){
     if(this != &other){
         delete[] buf; 
-        int *dat - new int[other.len]; 
+        int *dat =  new int[other.len]; 
         for(int i=0; i<other.len; ++i){
              dat[i] = other.buf[i]; 
         }
@@ -43,7 +43,7 @@ Array& operator=const(const Array& other){
         this->len = other.len; 
         }
         return *this; 
-    }
+}
     
 Array& operator=(Array&& other) noexcept{
     if(this!=&other){
