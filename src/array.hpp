@@ -31,7 +31,7 @@ friend void swap(Array& lhs, Array& rhs) noexcept{
     std::swap(lhs.buf, rhs.buf); 
 }
 Array& operator=(const Array other){ 
-    if(this!= other){ 
+    if(this!= &other){ 
     delete []buf;
     T* dat = new T[other.len];  
     for(int i = 0; i<other.len; ++i){
