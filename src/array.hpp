@@ -34,20 +34,19 @@ friend void swap(Array& lhs, Array& rhs) noexcept{
 Array& operator=(const Array other){ 
     if(this!= &other){ 
     delete[] buf;
-    T* dat = new T[other.len];  
+    len = other.len; 
+    buf = newT[len];
     for(int i = 0; i<other.len; ++i){
-        dat[i] = other.buf[i]; 
+        buf[i] = other.buf[i]; 
     }
-    this->buf = dat; 
-    this->len = other.len; 
     }
     return *this; 
 }
 Array& operator=(Array&& other) noexcept{
     if(this != &other){
     delete[] buf; 
-    this->buf = other.buf; 
-    this->len = other.len; 
+    len = other.len; 
+    buf = other.buf; 
     other.buf = nullptr;
     other.len =0; 
     }
