@@ -35,7 +35,7 @@ Array& operator=(const Array other){
     delete []buf;
     T* dat = new T[other.len];  
     for(int i = 0; i<other.len; ++i){
-        dat[i] = other.buf;
+        dat[i] = other.buf[i];
     }
     this->len = other.len;
     this->buf = dat; 
@@ -43,7 +43,7 @@ Array& operator=(const Array other){
     return *this; 
 }
 Array& operator=(Array&& other) noexcept{
-    if(!(this=&other)){
+    if(this!=&other){
     delete []buf; 
     this->len = other.len; 
     this->buf = other.buf; 
@@ -91,7 +91,7 @@ private:
 std::ostream& operator<<(std::ostream& out, const Array<auto>& array){ 
     std::stringstream prt; 
     prt<<std::setprecision(2) << std::fixed << std::right; 
-    for(int i =0; i<array.legth(); ++i){
+    for(int i =0; i<array.length(); ++i){
         prt<<std::setw(8) <<array[i]; 
     }
     out<< prt.str(); 
