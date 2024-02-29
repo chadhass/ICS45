@@ -10,7 +10,7 @@ template <typename T>
 class Array{
 public: 
 //impliment all methods from int_array.hpp here 
-Array():buf(nullptr), len(0){}
+Array(): len(0),buf(nullptr){}
 //construct array 
 explicit Array(int len): len(len), buf(new T[len]){}
 // copy + move constructors
@@ -33,21 +33,21 @@ friend void swap(Array& lhs, Array& rhs) noexcept{
 }
 Array& operator=(const Array other){ 
     if(this!= &other){ 
-    delete []buf;
+    delete[] buf;
     T* dat = new T[other.len];  
     for(int i = 0; i<other.len; ++i){
         dat[i] = other.buf[i]; 
     }
-    this->len = other.len;
     this->buf = dat; 
+    this->len = other.len; 
     }
     return *this; 
 }
 Array& operator=(Array&& other) noexcept{
-    if(this!=&other){
-    delete []buf; 
-    this->len = other.len; 
+    if(this != &other){
+    delete[] buf; 
     this->buf = other.buf; 
+    this->len = other.len; 
     other.buf = nullptr;
     other.len =0; 
     }
