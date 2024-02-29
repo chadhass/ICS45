@@ -92,7 +92,7 @@ std::ostream& operator<<(std::ostream& out, const Array<auto>& array){
     std::stringstream prt; 
     prt<<std::setprecision(2) << std::fixed << std::right; 
     for(int i =0; i<array.legth(); ++i){
-        prt<<std::setw(8) <<aray[i]; 
+        prt<<std::setw(8) <<array[i]; 
     }
     out<< ptr.str(); 
     return out; 
