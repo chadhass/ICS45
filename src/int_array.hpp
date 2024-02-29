@@ -54,7 +54,7 @@ Array& operator=(Array&& other) noexcept{
         other.len =0; 
         other.buf = nullptr;
     }
-    return *this 
+    return *this; 
     }
 
 //Destructor
