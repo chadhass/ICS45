@@ -73,8 +73,8 @@ void fill(T f){
 }
 
 //Fill array by the setting ever i to fn(i). 
-template<typename Fn> 
-void fill_with_fn(Fn, fn){
+template <typename Fn> 
+void fill_with_fn(Fn fn){
     for(int i =0; i<len; ++i){
         buf[i] = fn(i); 
     }
