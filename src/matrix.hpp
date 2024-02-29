@@ -7,7 +7,7 @@ template <typename  T>
 class Matrix{
 public: 
 
-    Matrix(): rows(0), cols(0)  //Construct 0x0 matrix 
+    Matrix(): rows(0), cols(0){}  //Construct 0x0 matrix 
     //construct matrix with given number of rows and columns. 
     Matrix(int rows, int cols): rows(rows), cols(cols){
         data = Array<Array<T>>{rows}; 
