@@ -37,6 +37,7 @@ public:
             for(int cl = 0; cl<cols; ++cl){
                 data[rw][cl] = fn(rw, cl); 
             }
+        }
     }
 private:
     int rows, cols; 
