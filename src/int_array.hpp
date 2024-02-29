@@ -20,7 +20,7 @@ public:
         len = other.len; 
     }
     Array(Array&& other){
-        buf = other.buf 
+        buf = other.buf; 
         other.buf= nullptr; 
         len = other.len; 
         other.len = 0; 
