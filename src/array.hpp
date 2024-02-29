@@ -12,7 +12,7 @@ public:
 //impliment all methods from int_array.hpp here 
 Array():buf(nullptr), len(0){}
 //construct array 
-explicit Array(int len): len(len), buf(new T[other.len]){}
+explicit Array(int len): len(len), buf(new T[len]){}
 // copy + move constructors
 Array(const Array& other):buf(newT[other.len]){ 
     for(int i =0; i<other.len; ++i){
