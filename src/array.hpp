@@ -56,7 +56,7 @@ Array& operator=(Array&& other) noexcept{
 int length() const{ return len;}
 T& operator[](int index){ 
 if(!in_bounds(index)){
-throw "Exception operator[](" + std::to_String(index) +") Out Of Range"; 
+throw "Exception operator[](" + std::to_string(index) +") Out Of Range"; 
 }
 return buf[index]; 
 }
