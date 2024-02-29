@@ -11,7 +11,7 @@ public:
     //construct matrix with given number of rows and columns. 
     Matrix(int rows, int cols): rows(rows), cols(cols){
         data = Array<Array<T>>{rows}; 
-        for(int rw =0; rw<rows; ++r){ 
+        for(int rw =0; rw<rows; ++rw){ 
             data[rw] = Array<T>{cols}; 
         }
     }
@@ -59,7 +59,7 @@ for (int r = 0; r<matrix.num_rows(); ++r) {
 //for a 2-row, 3-column matrix format. 
 template <typename T>
 std::istream& operator>>(std::istream& in, Matrix<T>& matrix){
-    T val 
+    T val; 
     for(int i =0; i<matrix.num_rows(); ++i){ 
         for(int col =0; c<matrix.num_cols(); ++col){
             if(in>>val){ 
