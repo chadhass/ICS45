@@ -68,7 +68,7 @@ int length() const{
 //Get a particular element of the array//TODO add bounds check). 
 int& operator[](int index){
  if(!in_bounds(index)){
- throw "Excption operator[](" + std::to_string(index); + ") Out Of Range"; 
+ throw "Excption operator[](" + std::to_string(index) + ") Out Of Range"; 
    }
    return buf[index];
 }
@@ -96,14 +96,14 @@ private:
 }; 
 //Print array to out in a single line 
 inline std::ostream& operator<<(std::ostream& out, const Array& array){ 
-    std::stringstream temp; 
+    std::stringstream prt; 
     //We don't want to set formatting flags globally
-    temp << std::setprecision(2) << std::fixed << std::right; 
+    prt << std::setprecision(2) << std::fixed << std::right; 
 
     for(int i =0; i <array.length(); ++i){
-        temp <<std::stew(8) << array[i]; 
+        prt <<std::setw(8) << array[i]; 
     }
-    out << temp.str(); 
+    out << prt.str(); 
     return out;
 }
 inline std::istream& operator>>(std::istream& in, Array& array){
