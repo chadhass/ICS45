@@ -37,7 +37,7 @@ Array& operator=(const Array other){
     for(int i = 0; i<other.len; ++i){
         dat[i] = other.buf;
     }
-    this->len = other.len 
+    this->len = other.len;
     this->buf = dat; 
     }
     return *this; 
