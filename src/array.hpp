@@ -32,8 +32,8 @@ friend void swap(Array& lhs, Array& rhs) noexcept{
 }
 Array& operator=(const Array other){ 
     if(this!= other){ 
-    T* dat = new T[other.len]; 
-    delete[] buf; 
+    delete buf[];
+    T* dat = new T[other.len];  
     for(int i = 0; i<other.len; ++i){
         dat[i] = other.buf;
     }
