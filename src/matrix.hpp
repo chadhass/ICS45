@@ -62,7 +62,8 @@ template <typename T>
 std::istream& operator>>(std::istream& in, Matrix<T>& matrix){
     T val; 
     for(int i =0; i<matrix.num_rows(); ++i){ 
-        for(int col =0; c<matrix.num_cols(); ++col){
+        for(int col =0; col<matrix.num_cols(); ++col){
+        
             if(in>>val){ 
                 matrix[i][col] = val;
             }
