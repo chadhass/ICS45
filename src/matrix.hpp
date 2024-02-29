@@ -21,7 +21,7 @@ public:
     const Array<T>& operator[](int row) const{return data[row];}
     //Get number of rows/columns 
     int num_rows() const{return this->rows;}
-    int num_cols() const;{return this->cols;}
+    int num_cols() const{return this->cols;}
     //Fill every entry of the matrix with given value 'val'
     void fill(const T& val){
         for(int rw = 0; rw<this->rows; ++rw){
@@ -34,7 +34,7 @@ public:
     template <typename Fn> 
     void fill_with_fn(Fn fn){
         for (int rw = 0; rw<this->rows; ++rw) {
-            for(int cl = 0; c<cols; ++cl){
+            for(int cl = 0; cl<cols; ++cl){
                 data[rw][cl] = fn(rw, cl); 
             }
     }
