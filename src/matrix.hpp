@@ -56,12 +56,12 @@ for (int r = 0; r<matrix.num_rows(); ++r) {
 //Read matriz from in, Assume the matrix is in a format like 
 //      1 2 3
 //      4 5 6  
-//for a 2-row, 3-column matrix. 
+//for a 2-row, 3-column matrix format. 
 template <typename T>
 std::istream& operator>>(std::istream& in, Matrix<T>& matrix){
     T val 
     for(int i =0; i<matrix.num_rows(); ++i){ 
-        for(int col =0; c<matrix.num_cols(); ++ col){
+        for(int col =0; c<matrix.num_cols(); ++col){
             if(in>>value){ 
                 matrix[i][col] = value;
             }
