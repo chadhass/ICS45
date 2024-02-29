@@ -69,12 +69,14 @@ int length() const{
 int& operator[](int index){
  if(!in_bounds(index)){
  throw "Excption operator[](" + std::to_string(index); + ") Out Of Range"; 
-    return buf[index];
+   }
+   return buf[index];
 }
 //Get a particular element of the array TODO: add bounds check
 const int& operator[](int index) const{
 if(!in_bounds(index)){ 
     throw "Exception operator[](" + std::to_string(index) + ") Out Of Range";
+    }
     return buf[index]; 
 }
 
