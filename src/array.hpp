@@ -35,7 +35,7 @@ Array& operator=(const Array other){
     if(this!= &other){ 
     delete[] buf;
     len = other.len; 
-    buf = newT[len];
+    buf = new T[len];
     for(int i = 0; i<other.len; ++i){
         buf[i] = other.buf[i]; 
     }
