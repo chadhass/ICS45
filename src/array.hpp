@@ -23,6 +23,7 @@ Array(const Array& other):buf(new T[other.len]){
 Array(Array&& other){ 
     buf = other.buf; 
     other.buf = nullptr; 
+
     len = other.len;
     other.len = 0; 
 }
@@ -35,7 +36,7 @@ Array& operator=(const Array other){
     delete []buf;
     T* dat = new T[other.len];  
     for(int i = 0; i<other.len; ++i){
-        dat[i] = other.buf[i];
+        dat[i] = other.buf[i]; 
     }
     this->len = other.len;
     this->buf = dat; 
@@ -47,8 +48,8 @@ Array& operator=(Array&& other) noexcept{
     delete []buf; 
     this->len = other.len; 
     this->buf = other.buf; 
+    other.buf = nullptr;
     other.len =0; 
-    other.buf = nullptr; 
     }
     return *this;
 }
