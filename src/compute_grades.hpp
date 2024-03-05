@@ -12,10 +12,10 @@ public:
 
     void compute_grade(); 
 
-    std::strong_ordering operator <=>(const Student& other) const; 
+    std::strong_ordering operator<=>(const Student& other) const; 
     bool operator==(const Student& other) const; 
 
-    friend std::istream& operator>>(Std::istream& in, Student& s); 
+    friend std::istream& operator>>(std::istream& in, Student& s); 
     friend std::ostream operator<<(std::ostream& out, const Student& s); 
 
 private:
