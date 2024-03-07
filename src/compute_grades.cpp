@@ -8,6 +8,22 @@
 
 void Student::validate() const{
      auto is_invalid_score = [](int score) { return score < 0 || score > 100; };
+
+     std::for_each(quiz.begin(), quiz.end(), [&](int score) {
+        if (is_invalid_score(score)) {
+             throw std::domain_error("Error: invalid percentage " + std::to_string(score)); 
+        }
+    }); 
+
+     std::for_each(hw.begin(), hw.end(), [&](int score) {
+        if (is_invalid_score(score)) {
+             throw std::domain_error("Error: invalid percentage " + std::to_string(score));
+        }
+    }); 
+
+     if (final_score < 0 || final_score > 100) {
+     throw std::domain_error("Error: invalid percentage " + std::to_string(final_score));
+     }
 }
 
 void Student::compute_grade() {
