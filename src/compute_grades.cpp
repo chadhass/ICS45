@@ -13,7 +13,6 @@ void Student::validate() const{
         }
     }
 
-
     for(int score : quiz){
       if(score <0 ||  score > 100){  
          throw std::domain_error("Error: invalid percenage " + std::to_string(score)); 
@@ -40,7 +39,7 @@ void Student::compute_grade() {
             quiz_avg =0; 
         } 
 
-        hwavg = (hw.empty()) ? 0 : std::accumulate(hw.begin(), hw.end(), 0) / hw.size();
+        hw_avg = (hw.empty()) ? 0 : std::accumulate(hw.begin(), hw.end(), 0) / hw.size();
 
          course_score = round(quiz_avg * 0.4 + hw_avg * 0.3 + final_score * 0.3);
 }
@@ -116,7 +115,7 @@ std::istream& operator>>(std::istream& in, Gradebook& b){
     return in; 
 } 
 
- std::ostream& operator<<(std::ostream& out, const  Gradebook& b){
+ std::ostream& operator<<(std::ostream& out, const Gradebook& b){
      for(const auto& student : b.students){  
          out << student;  
     }
