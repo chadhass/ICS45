@@ -41,7 +41,7 @@ const std::set<std::string>& stopwords){
 
     for(auto& word : words){
          if(stopwords.find(to_lowercase(word) == stopwords.end()){   
-            wordmap[word]++
+            wordmap[word]++;
     }
 
     return wordmap; 
