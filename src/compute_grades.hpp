@@ -44,7 +44,7 @@ public:
     void validate() const; 
 
     friend std::istream& operator>>(std::istream& in, Gradebook& b); 
-    friend std::ostream operator<<(std::ostream& out, const Gradebook& b); 
+    friend std::ostream& operator<<(std::ostream& out, const Gradebook& b); 
 
 private:    
     std::vector<Student> students; 
