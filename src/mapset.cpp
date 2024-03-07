@@ -17,7 +17,7 @@ std::string to_lowerase(const std::string& str) {
 std::set<std::string> load_stopwords(std::istream& stopwords){
     std::set<std::string> thestopwords; 
 
-    std::for_each(std::istream_iterator<std::String>(stopwords), 
+    std::for_each(std::istream_iterator<std::string>(stopwords), 
     std::istream_iterator<std::string>(),[&thestopwords](const std::string& word){
         thestopwords.insert(to_lowercase(word)); 
         }); 
