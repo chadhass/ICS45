@@ -83,8 +83,8 @@ return out;
 }
 
 void Gradebook::compute_grades(){
-    for(auto& s : students){
-         s.compute_grade();
+    std::for_each(students.begin(), students.end(), [](Student& s) {
+       s.compute_grade();
     } 
 } 
 
@@ -93,9 +93,9 @@ void Gradebook::sort(){
 }
 
 void Gradebook::validate() const {
-     for(const auto& s : students){ 
+    std::for_each(students.begin(), students.end(), [](const Student& s) {
         s.validate(); 
-    }
+    });
 } 
 
 std::istream& operator>>(std::istream& in, Gradebook& b){
