@@ -15,7 +15,7 @@ void Student::validate() const{
 
 
     for(int score : quiz){
-      if(score <0 !! score > 100){  
+      if(score <0 ||  score > 100){  
          throw std::domain_error("Error: invalid percenage " + std::to_string(score)); 
          }
     }
