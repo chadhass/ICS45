@@ -8,7 +8,7 @@
 
 std::string to_lowerase(const std::string& str) {
     std::string lowerstr(str); 
-    std::transform(lowerstr.begin(),lowerstr,end, lowerstr.begin()[](char lc){ 
+    std::transform(lowerstr.begin(),lowerstr.end(), lowerstr.begin()[](char lc){ 
     return std::tolower(static_cast<unsigned char>(lc));
     }); 
     return lowerstr;
