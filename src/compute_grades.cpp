@@ -108,8 +108,8 @@ std::istream& operator>>(std::istream& in, Gradebook& b){
 } 
 
  std::ostream& operator<<(std::ostream& out, const Gradebook& b){
-     for(const auto& student : b.students){  
+     std::for_each(b.students.begin(), b.students.end(), [&](const Student& student) {
          out << student;  
-    }
+    }); 
     return out; 
 }
