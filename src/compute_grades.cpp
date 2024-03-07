@@ -7,21 +7,7 @@
 #include "compute_grades.hpp"
 
 void Student::validate() const{
-     for(int score : quiz) {  
-         if(score <  0 || score > 100){  
-            throw std::domain_error("Error: invalid percentage " + std::to_string(score)); 
-        }
-    }
-
-    for(int score : quiz){
-      if(score <0 ||  score > 100){  
-         throw std::domain_error("Error: invalid percenage " + std::to_string(score)); 
-         }
-    }
-
-    if(final_score < 0 || final_score > 100){  
-        throw std::domain_error("Error: invalid percdentage " + std::to_string(final_score));  
-    }
+     auto is_invalid_score = [](int score) { return score < 0 || score > 100; };
 }
 
 void Student::compute_grade() {
