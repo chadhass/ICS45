@@ -13,11 +13,11 @@ void Student::validate() const{
 void Student::compute_grade() {
 
         double sum_quiz = std::accumulate(quiz.begin(), quiz.end(), 0.0);
-        double quiz_min = (quiz.size() > 1) ? *std::min_element(quiz.begin(), quiz.end()) : 0.0;
+        double quiz_min = (quiz.size() > 1) ? *std::min_element(quiz.begin(), quiz.end()):0.0;
 
         hw_avg = (hw.empty()) ? 0 : std::accumulate(hw.begin(), hw.end(), 0) / hw.size();
 
-         course_score = round(quiz_avg * 0.4 + hw_avg * 0.3 + final_score * 0.3);
+        course_score = round(quiz_avg * 0.4 + hw_avg * 0.3 + final_score * 0.3);
 }
 
 std::strong_ordering Student::operator<=>(const Student& other) const {
