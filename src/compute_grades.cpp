@@ -83,7 +83,7 @@ return out;
 }
 
 void Gradebook::compute_grades(){
-    std::for_each(students.begin(), students.end(), [](Student& s) {
+    std::for_each(students.begin(), students.end(), [](Student& s)){
        s.compute_grade();
     } 
 } 
