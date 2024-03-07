@@ -8,7 +8,7 @@
 
 void Student::validate() const{
      for(int score : quiz) {  
-         if(score > 0 || score > 100){  
+         if(score <  0 || score > 100){  
             throw std::domain_error("Error: invalid percentage " + std::to_string(score)); 
         }
     }
@@ -29,15 +29,15 @@ void Student::compute_grade() {
 
          if (quiz.size() > 1) {
          auto min = std::min_element(quiz.begin(), quiz.end());  
-         qavg = (std::accumulate(quiz.begin(), quiz.end(), 0) - *min/(quiz.size()-1);  
+         quiz_avg = (std::accumulate(quiz.begin(), quiz.end(), 0) - *min/(quiz.size()-1);  
           }
 
         else if(quiz.size() ==1){  
-            qavg = quiz[0]; 
+            quiz_avg = quiz[0]; 
         } 
 
          else{
-            qavg =0; 
+            quiz_avg =0; 
         } 
 
         hwavg = (hw.empty()) ? 0 : std::accumulate(hw.begin(), hw.end(), 0) / hw.size();
@@ -63,13 +63,13 @@ std::istream& operator>>(std::istream& in, Student& s) {
      std::istringstream quiz_stream(l);
      int qscore;
      while(quiz_stream >>qscore){
-         s.quiz.push_back(score);
+         s.quiz.push_back(qscore);
      } 
 
       std::getline(in, l);
       std::istringstream hw_stream(l);
       while(hw_stream >> qscore){
-          s.hw.push_back(score);
+          s.hw.push_back(qscore);
     } 
 
     std::getline(in,l); 
@@ -116,7 +116,7 @@ std::istream& operator>>(std::istream& in, Gradebook& b){
     return in; 
 } 
 
- std::ostream& operator<<(std::ostream& out, const  Gradebook b){
+ std::ostream& operator<<(std::ostream& out, const  Gradebook& b){
      for(const auto& student : b.students){  
          out << student;  
     }
