@@ -9,7 +9,7 @@ void split_odd_even(std::istream& numbers, std::ostream& odds, std::ostream& eve
 
 std::vector<int> nums{
     std::istream_iterator<int>(numbers), std::istream_iterator<int>()}; 
-} 
+ 
 
 std::sort(nums.begin(), nums.end()); 
 
