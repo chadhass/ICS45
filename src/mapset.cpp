@@ -40,7 +40,7 @@ const std::set<std::string>& stopwords){
     std::sort(words.begin(), words.end()); 
 
     for(auto& word : words){
-         if(stopwords.find(to_lowercase(word) == stopwords.end()){   
+         if(stopwords.find(to_lowercase(word)) == stopwords.end()){   
             wordmap[word]++;
     }
 
