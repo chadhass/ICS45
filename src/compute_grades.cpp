@@ -92,7 +92,7 @@ return out;
 
 void Gradebook::compute_grades(){
     for(auto& s : students){
-         s.compute_grades();
+         s.compute_grade();
     } 
 } 
 
