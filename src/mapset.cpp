@@ -6,7 +6,7 @@
 #include <iterator> 
 #include <vector> 
 
-std::string to_lowerase(const std::string& str) {
+std::string to_lowercase(const std::string& str) {
     std::string lowerstr(str); 
     std::transform(lowerstr.begin(),lowerstr.end(), lowerstr.begin(), [](char lc){ 
     return std::tolower(static_cast<unsigned char>(lc));
