@@ -8,7 +8,7 @@
 
 std::string to_lowercase(const std::string& str); 
 
-std::set<std::string> lood_stopwords(std::istream& stopwords); 
+std::set<std::string> load_stopwords(std::istream& stopwords); 
 
 std::map<std::string, int> count_words(std::istream& document, const std::set<std::string>& stopwords); 
 
