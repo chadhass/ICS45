@@ -25,30 +25,30 @@ std::set<std::string> load_stopwords(std::istream& stopwords){
 
 }
 
-std::map<std::string, int> countwords(std::istream& document,
-const std::set<std::string>& stopwords){
+std::map<std::string, int> countwords(std::istream& document, const std::set<std::string>& stopwords){
     std::map<std::string, int> wordmap; 
 
     std::vector<std::string> words; 
     std::string word; 
 
-    std::for_each(std::istream_iterator<std::string>(document), 
-    std::istream_iterator<std::string>(),[&words] (const std::string& word)
+    std::for_each(std::istream_iterator<std::string>(document), std::istream_iterator<std::string>(),[&words] (const std::string& word)
     { 
-    words.push_back(to_lowercase(word)); 
-    }); 
+    words.push_back(to_lowercase(word));}); 
     std::sort(words.begin(), words.end()); 
 
-    for(auto& word : words){
+    for(auto& word : words)
+    {
          if(stopwords.find(to_lowercase(word)) == stopwords.end()){   
             wordmap[word]++;
+        }   
     }
 
     return wordmap; 
 }
 
 void output_word_counts(const std::map<std::string, int>&word_counts, std::ostream& output){
-    for(const auto&[w,c] : word_counts){
+    for(const auto&[w,c] : word_counts)
+    {
         output << w << ' ' << c << std::endl; 
     }
 }
