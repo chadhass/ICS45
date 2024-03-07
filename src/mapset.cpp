@@ -47,8 +47,7 @@ const std::set<std::string>& stopwords){
     return wordmap; 
 }
 
-void output_word_counts(const std::map<std::string, int>&word_counts,
-std::ostream& output){
+void output_word_counts(const std::map<std::string, int>&word_counts, std::ostream& output){
     for(const auto&[w,c] : word_counts){
         output << w << ' ' << c << std::endl; 
     }
