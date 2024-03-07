@@ -15,12 +15,12 @@ std::sort(nums.begin(), nums.end());
 
 std::copy_if(nums.begin(), nums.end(),std::ostream_iterator<int>(odds," "),[](int num)
 { 
-    n = num%2 != 0;
+    int  n = num%2 != 0;
     return n; 
 }); 
 
 std::copy_if(nums.begin(),nums.end(),std::ostream_iterator<int>(evens, " ")[](int num){ 
-    n = num%2 ==0; 
+    int  n = num%2 ==0; 
     return n; 
 }); 
 
