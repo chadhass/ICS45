@@ -13,7 +13,7 @@ std::vector<int> nums{
 
 std::sort(nums.begin(), nums.end()); 
 
-std::copy_if(nums.begin(), nums.end(),std::ostream_interator<int>(odds," "),[](int num)
+std::copy_if(nums.begin(), nums.end(),std::ostream_iterator<int>(odds," "),[](int num)
 { 
     n = num%2 != 0;
     return n; 
