@@ -29,7 +29,7 @@ void Student::compute_grade() {
 
          if (quiz.size() > 1) {
          auto min = std::min_element(quiz.begin(), quiz.end());  
-         quiz_avg = (std::accumulate(quiz.begin(), quiz.end(), 0) - *min/(quiz.size()-1);  
+         quiz_avg = (std::accumulate(quiz.begin(), quiz.end(), 0) - *min/(quiz.size()-1));  
           }
 
         else if(quiz.size() ==1){  
