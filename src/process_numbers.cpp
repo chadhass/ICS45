@@ -18,8 +18,9 @@ std::copy_if(nums.begin(), nums.end(),std::ostream_iterator<int>(odds," "),[](in
     int  n = num%2 != 0;
     return n; 
 }); 
+odds << '\n'; 
 
-std::copy_if(nums.begin(),nums.end(),std::ostream_iterator<int>(evens, " "),[](int num){ 
+std::copy_if(nums.begin(),nums.end(),std::ostream_iterator<int>(evens, "\n "),[](int num){ 
     int  n = num%2 ==0; 
     return n; 
 }); 
