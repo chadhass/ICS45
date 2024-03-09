@@ -177,14 +177,14 @@ std::istream& operator>>(std::istream& in, Gradebook& b){
         Student stu; 
         in >> stu; 
         if(in){ 
-            g.student.push_back(stu); 
+            b.student.push_back(stu); 
         } 
     } 
     return in; 
 } 
 
  std::ostream& operator<<(std::ostream& out, const Gradebook& b){
-    for(const Student& s : g.students){ 
+    for(const Student& s : b.students){ 
         std::cout << "logging for student " << std::endl; 
         out <<s; 
     } 
