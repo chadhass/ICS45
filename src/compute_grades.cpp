@@ -13,7 +13,7 @@
 #include "compute_grades.hpp"
 
 void Student::validate() const{
-    std::for_each(this->quiz.begin(), this->quiz.end(),[](int qs)
+    std::for_each(this->quiz.begin(), this->quiz.end(),[](int qs){
         if(qs <0 || qs >100){ 
             throw std::domain_error("Error: invalid percentage " +std::to_string(qs)); 
         } 
