@@ -177,7 +177,7 @@ std::istream& operator>>(std::istream& in, Gradebook& b){
         Student stu; 
         in >> stu; 
         if(in){ 
-            b.student.push_back(stu); 
+            b.students.push_back(stu); 
         } 
     } 
     return in; 
