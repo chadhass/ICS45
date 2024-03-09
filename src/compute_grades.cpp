@@ -113,10 +113,10 @@ void Student::compute_hw_avg(){
     this->hw_avg = hwSum/this->hw.size(); 
 }
 
-void Sudent::compute_course_score(){ 
+void Student::compute_course_score(){ 
     this->compute_hw_avg(); 
     this->compute_quiz_avg(); 
-    this->course_score = (int(0.4 * this->quiz_avg + 0.3 * this->hw_avg + 0.3 * this->final_score +0.5); 
+    this->course_score = static_cast<int>(0.4 * this->quiz_avg + 0.3 * this->hw_avg + 0.3 * this->final_score +0.5); 
 } 
 void Student::compute_grade(){ 
     this->compute_course_score(); 
@@ -174,9 +174,9 @@ void Gradebook::validate() const {}
 std::istream& operator>>(std::istream& in, Gradebook& b){
     while(in.peek() != EOF){ 
         Student stu; 
-        in >> student; 
+        in >> stu; 
         if(in){ 
-            g.student.push_back(student); 
+            g.student.push_back(stu); 
         } 
     } 
     return in; 
