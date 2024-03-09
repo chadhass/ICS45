@@ -33,7 +33,7 @@ std::strong_ordering Student::operator<=>(const Student& other) const {
     if(auto comp = course_score <=> other.course_score; comp != std::strong_ordering::equal){ 
         return comp; 
     } 
-    if(auto comp first_name <=> other.first_name; comp != std::strong_ordering::equal){ 
+    if(auto comp = first_name <=> other.first_name; comp != std::strong_ordering::equal){ 
         return comp; 
     }
     return last_name <=> other.last_name; 
