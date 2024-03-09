@@ -62,7 +62,7 @@ std::istream& operator>>(std::istream& in, Student& s) {
             s.quiz = std::vector<int>(std::istream_iterator<int>(iss), std::istream_iterator<int>()); 
         } 
         else if(key == "HW"){ 
-            s.hw = std::vector<int>(std::istream_iterator<int>(iss), std::istream_iterator<int>()}; 
+            s.hw = std::vector<int>{std::istream_iterator<int>(iss), std::istream_iterator<int>()}; 
         } 
         else if(key == "Final"){ 
             iss >> s.final_score; 
