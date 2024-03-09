@@ -117,7 +117,7 @@ void Student::compute_hw_avg(){
 void Student::compute_course_score(){ 
     this->compute_hw_avg(); 
     this->compute_quiz_avg(); 
-    this->course_score = static_cast<int>(0.4 * this->quiz_avg + 0.3 * this->hw_avg + 0.3 * this->final_score +0.5); 
+    this->course_score = static_cast<double>(0.4 * this->quiz_avg + 0.3 * this->hw_avg + 0.3 * this->final_score +0.5); 
 } 
 void Student::compute_grade(){ 
     this->compute_course_score(); 
@@ -156,7 +156,7 @@ void Student::compute_grade(){
     else if(score >= 63){ 
         g = "D"; 
     } 
-    else if(score >= 60){ 
+    else if(score >= 62 && score >= 60){ 
         g = "D-"; 
     } 
     else{ 
