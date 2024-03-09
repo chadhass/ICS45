@@ -3,113 +3,189 @@
 #include<stdexcept>
 #include<algorithm>
 #include<sstream>  
-#include <numeric> 
+#include<numeric> 
+#include<string> 
+#include<set>
+#include<fstream> 
+#include<iterator> 
+#include<iostream> 
+#include<vector>
 #include "compute_grades.hpp"
 
 void Student::validate() const{
-     auto is_invalid_score = [](int score) { return score < 0 || score > 100; };
-
-     std::for_each(quiz.begin(), quiz.end(), [&](int score) {
-        if (is_invalid_score(score)) {
-             throw std::domain_error("Error: invalid percentage " + std::to_string(score)); 
+    std::for_each(this->quiz.begin(), this->quiz.end(),[](int qs)
+        if(qs <0 || qs >100){ 
+            throw std::domain_error("Error: invalid percentage " +std::to_string(qs)); 
+        } 
+    }); 
+    std::for_each(this->hw.begin(), this-> hw.end(), [](int hw){ 
+        if(hw<0 || hw > 100){ 
+            throw std::domain_Error("Enter: invalid percentage "+std::to_string(hw)); 
         }
     }); 
-
-     std::for_each(hw.begin(), hw.end(), [&](int score) {
-        if (is_invalid_score(score)) {
-             throw std::domain_error("Error: invalid percentage " + std::to_string(score));
-        }
-    }); 
-
-     if (final_score < 0 || final_score > 100) {
-     throw std::domain_error("Error: invalid percentage " + std::to_string(final_score));
-     }
+    if(this->final_score <0 || this ->final_score > 100){ 
+        throw std::domain_error("Error invalid percentage " + std::to_string(this->final_score)); 
+    }
 }
 
-void Student::compute_grade() {
-
-        double sum_quiz = std::accumulate(quiz.begin(), quiz.end(), 0.0);
-        double quiz_min = (quiz.size() > 1) ? *std::min_element(quiz.begin(), quiz.end()):0.0;
-
-        hw_avg = (hw.empty()) ? 0 : std::accumulate(hw.begin(), hw.end(), 0) / hw.size();
-
-        course_score = round(quiz_avg * 0.4 + hw_avg * 0.3 + final_score * 0.3);
-}
 
 std::strong_ordering Student::operator<=>(const Student& other) const {
-    return last_name<=> other.last_name;  
+    if(auto comp = course_score <=> other.course_score; comp != std::strong_ordering::equal){ 
+        return comp; 
+    } 
+    if(auto comp first_name <=> other.first_name; comp != std::strong_ordering::equal){ 
+        return comp; 
+    }
+    return last_name <=> other.last_name; 
 }
 
  bool Student::operator==(const Student& other) const {
-      return (last_name == other.last_name && first_name == other.first_name); 
+      return (this->course_score == other.course_score) ? true : false;
 }
 
 std::istream& operator>>(std::istream& in, Student& s) {
      std::string l;  
-     std::getline(in,l);
-     std::istringstream iss(l);
-     iss >> s.first_name >> s.last_name;
-
-     std::getline(in, l); 
-     std::istringstream quiz_stream(l);
-     int qscore;
-     while(quiz_stream >>qscore){
-         s.quiz.push_back(qscore);
-     } 
-
-      std::getline(in, l);
-      std::istringstream hw_stream(l);
-      while(hw_stream >> qscore){
-          s.hw.push_back(qscore);
+     std::vector<std::string> lines; 
+     while(std::Getline(in, l) && !l.empty()){ 
+        lines.push_back(l); 
     } 
 
-    std::getline(in,l); 
-    std::istringstream fe_stream(l);
-    fe_stream >> s.final_score; 
+    std::for_each(lines.begin(), lines.end(), [&s](const std::string& l){ 
+        std::istringstream iss(line); 
+        std::string key;
+        iss >>key; 
+        if(key =="Name"){ 
+            iss >> s.first_name >> std::ws; 
+            std::getline(iss, s.last_name); 
+        } 
+        else if(key == "Quiz"){ 
+            s.quiz = std::vector<int>(std::istream_iterator<int>(iss), std::istream_iterator<int>()); 
+        } 
+        else if(key == "HW"){ 
+            s.hw = std::vector<int>(std::istream_iterator<int>(iss), std::istream_iterator<int>()}; 
+        } 
+        else if(key == "Final"){ 
+            iss >> s.final_score; 
+        } 
+    }); 
 
+    s.compute_grade(); 
     return in; 
-
 } 
 
 std::ostream& operator<<(std::ostream& out, const Student& s) {
-out << std::setw(8) << std::left << "Name: " << s.first_name << " " << s.last_name << std::endl;
-out << std::setw(8) << std::left << "HW Ave: " << s.hw_avg << std::endl;
-out << std::setw(8) << std::left << "QZ Ave: " << s.quiz_avg << std::endl;
-out << std::setw(8) << std::left << "Final: " << s.final_score << std::endl;
-out << std::setw(8) << std::left << "Grade: " << s.course_grade << std::endl;
-out << std::setw(8) << std::left << "Total: " << s.course_score << std::endl;
-out << std::endl;
+out << std::setw(8) << std::left << "Name: " << s.first_name << " " << s.last_name << "\n" << std::setw(8) << "HW Ave: " << std::fixed << std::setprecision(2) << s.hw_avg << "\n" <<std::setw(8) << "QZ Av: " << std::fixed << std::setprecision(2) << s.quiz_avg << "\n" << std::setw(8) << "Final: " << s.final_score << "\n" << std::setw(8) << "Total: " << s.course_score << "\n" <<std::setw(8) << "Grade: " << s.course_grade << "\n" << "\n"; 
 return out; 
 }
 
-void Gradebook::compute_grades(){
-    std::for_each(students.begin(), students.end(), [](Student& s)){
-       s.compute_grade();
+void Student::compute_quiz_avg(){ 
+    if(this->quiz.empty()){ 
+        return; 
     } 
+    bool multipleScores = this->quiz.size() >= 2; 
+
+    int minVal = -1; 
+
+    if(multipleScores){ 
+        minVal = this->quiz[0]; 
+        std::for_each(this->quiz.begin(),this->quiz.end(), [&](int qs){if(minVal >= qs){
+            minVal = qs; 
+        }
+        }); 
+    int quizSum =0; 
+    std::for_each(this->quiz.begin(), this->quiz.end(),[&](int qs){if(minVal >= qs){ 
+        quizSum +=  qs; 
+    } 
+    }); 
+    if(multipleScores){ 
+        this->quiz_avg = quizSum/(this->quiz.size()-1); 
+    }
+    else{ 
+        this->quiz_avg = quizSum/(this->quiz.size()); 
+    }
 } 
 
-void Gradebook::sort(){
-    std::sort(students.begin(), students.end());
+void Student::compute_hw_avg(){ 
+    int hwSum = 0; 
+    std::for_each(this->hw.begin(),this->hw.end(),[&](int hw){ 
+        hwSum += hw; 
+    }); 
+    this->hw_avg = hwSum/currSum/this->hw.size(); 
 }
 
-void Gradebook::validate() const {
-    std::for_each(students.begin(), students.end(), [](const Student& s) {
-        s.validate(); 
-    });
+void Sudent::compute_course_score(){ 
+    this->compute_hw_avg(); 
+    this->compute_quiz_avg(); 
+    this->course_score = (int(0.4 * this->quiz_avg + 0.3 * this->hw_avg + 0.3 * this->final_score +0.5); 
 } 
+void Student::compute_grade(){ 
+    this->compute_course_score(); 
+    std::string g; 
+    int score = this->course_score; 
+    if(score >= 97){ 
+        g = "A+";
+    }
+    else if(score >= 93){ 
+        g  = "A"; 
+    } 
+    else if(score >= 90){ 
+        g = "A-"; 
+    } 
+    else if(score >= 87){ 
+        g = "B+"; 
+    }
+    else if(score >= 83){ 
+        g = "B"; 
+    } 
+    else if(score >= 80){ 
+        g = "B-"; 
+    } 
+    else if(score >= 77){ 
+        g = "C+";
+    } 
+    else if(score >= 73){ 
+        g = "C"; 
+    }
+    else if(score >= 70){
+        g = "C-"; 
+    } 
+    else if(score >= 67){ 
+        g = "D+"; 
+    } 
+    else if(score >= 63){ 
+        g = "D"; 
+    } 
+    else if(score >= 60){ 
+        g = "D-"; 
+    } 
+    else{ 
+        g = "F"; 
+    }
+    this->course_Grade = g; 
+}
+
+
+void Gradebook::compute_grades(){} 
+
+void Gradebook::sort(){}
+
+void Gradebook::validate() const {} 
 
 std::istream& operator>>(std::istream& in, Gradebook& b){
-    Student s; 
-    while(in>>s){ 
-        b.students.push_back(s); 
-    }
-
+    while(in.peek() != EOF){ 
+        Student stu; 
+        in >> student; 
+        if(in){ 
+            g.student.push_back(student); 
+        } 
+    } 
     return in; 
 } 
 
  std::ostream& operator<<(std::ostream& out, const Gradebook& b){
-     std::for_each(b.students.begin(), b.students.end(), [&](const Student& student) {
-         out << student;  
-    }); 
+    for(const Student& s : g.students){ 
+        std::cout << "logging for student " << std::endl; 
+        out <<s; 
+    } 
     return out; 
-}
+ }
