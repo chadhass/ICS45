@@ -20,7 +20,7 @@ void Student::validate() const{
     }); 
     std::for_each(this->hw.begin(), this-> hw.end(), [](int hw){ 
         if(hw<0 || hw > 100){ 
-            throw std::domain_Error("Enter: invalid percentage "+std::to_string(hw)); 
+            throw std::domain_error("Enter: invalid percentage "+std::to_string(hw)); 
         }
     }); 
     if(this->final_score <0 || this ->final_score > 100){ 
