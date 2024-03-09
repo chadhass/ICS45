@@ -110,7 +110,7 @@ void Student::compute_hw_avg(){
     std::for_each(this->hw.begin(),this->hw.end(),[&](int hw){ 
         hwSum += hw; 
     }); 
-    this->hw_avg = hwSum/currSum/this->hw.size(); 
+    this->hw_avg = hwSum/this->hw.size(); 
 }
 
 void Sudent::compute_course_score(){ 
