@@ -91,7 +91,8 @@ void Student::compute_quiz_avg(){
         std::for_each(this->quiz.begin(),this->quiz.end(), [&](int qs){if(minVal >= qs){
             minVal = qs; 
         }
-        }); 
+        });
+    }
     int quizSum =0; 
     std::for_each(this->quiz.begin(), this->quiz.end(),[&](int qs){if(minVal >= qs){ 
         quizSum +=  qs; 
