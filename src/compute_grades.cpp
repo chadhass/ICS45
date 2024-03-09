@@ -162,7 +162,7 @@ void Student::compute_grade(){
     else{ 
         g = "F"; 
     }
-    this->course_Grade = g; 
+    this->course_grade = g; 
 }
 
 
