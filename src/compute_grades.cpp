@@ -51,7 +51,7 @@ std::istream& operator>>(std::istream& in, Student& s) {
     } 
 
     std::for_each(lines.begin(), lines.end(), [&s](const std::string& l){ 
-        std::istringstream iss(lines); 
+        std::istringstream iss(l); 
         std::string key;
         iss >>key; 
         if(key =="Name"){ 
