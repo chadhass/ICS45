@@ -46,7 +46,7 @@ std::strong_ordering Student::operator<=>(const Student& other) const {
 std::istream& operator>>(std::istream& in, Student& s) {
      std::string l;  
      std::vector<std::string> lines; 
-     while(std::Getline(in, l) && !l.empty()){ 
+     while(std::getline(in, l) && !l.empty()){ 
         lines.push_back(l); 
     } 
 
