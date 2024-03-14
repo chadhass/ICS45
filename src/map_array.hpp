@@ -55,7 +55,7 @@ public:
     friend ArrayIterator operator-(difference_type d, ArrayIterator it){
         return ArrayIterator(it.ptr-d); 
     }
-    friend ArrayIterator operator+(difference_type d, ArrayIterator it){ 
+    friend ArrayIterator operator-(ArrayIterator it, difference_type d){ 
         return ArrayIterator(it.ptr+d); 
     }
     friend ArrayIterator operator-(difference_type d, ArrayIterator it){ 
