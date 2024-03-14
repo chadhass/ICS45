@@ -8,7 +8,7 @@
 #include <memory>
 #include <ranges>
 
-template <Typename T> 
+template <typename T> 
 class SetList { 
     struct ListNode{ 
     T data; 
