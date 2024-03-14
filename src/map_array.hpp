@@ -89,7 +89,8 @@ public:
         return ArrayIterator(data.data() + data.size()); 
     }
     Value& operator[](const Key& key){ 
-        auto insert = std::lower_bound(data.begin(), data.end(), std::make_pair(key,Value{},[](const auto& pair, const auto&v){ 
+        auto insert = std::lower_bound(data.begin(), data.end(), std::make_pair(key,Value{}),[](const auto& pair, const auto&v)
+        { 
             return pair.first < v.first; 
         });
         if(insert->first == key && insert != data.end()){ 
