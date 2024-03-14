@@ -14,7 +14,7 @@ public:
     class ArrayIterator{ 
     public: 
     //Iterator traits 
-    using iterator_catagory = std::random_access_iterator_tag; 
+    using iterator_category = std::random_access_iterator_tag; 
     using value_type = MapArray::value_type; 
     using difference_type = std::ptrdiff_t; 
     using pointer = value_type*; 
@@ -93,11 +93,11 @@ public:
         { 
             return pair.first < v.first; 
         });
-        if(insert->first == key && insert != data.end()){ 
+        if(insert != data.end()&& insert->first == key){ 
             return insert->second; 
         } 
         else{ 
-            return data.emplace(insert, key, Value())->second; 
+            return data.emplace(insert, key, Value{}))->second; 
         }
     }
 
