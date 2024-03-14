@@ -23,10 +23,10 @@ public:
     using pointer = T*; 
     using reference= T&;  
 
-    explicit ListIterator(std::shared_ptr<ListNode> ptr =  nullptr): ptr(p){}
+    explicit ListIterator(std::shared_ptr<ListNode> ptr =  nullptr): ptr(ptr){}
     ListIterator& operator++(){ 
-        if(p){ 
-            p= p->next; 
+        if(ptr){ 
+            ptr= ptr->next; 
         }
         return *this; 
     }
