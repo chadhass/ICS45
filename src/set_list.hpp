@@ -52,7 +52,7 @@ public:
 
     SetList() = default; 
 
-    template <std::ranges::input_Range Rng>
+    template <std::ranges::input_range Rng>
     explicit SetList(Rng&& rng){ 
         std::ranges::for_each(std::forward<Rng>(rng),
                               std::bind_front(&SetList::insert, this)); 
