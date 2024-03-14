@@ -16,7 +16,7 @@ public:
     //Iterator traits 
     using iterator_catagory = std::random_access_iterator_tag; 
     using value_type = MapArray::value_type; 
-    using different_type = std::ptrdiff_t; 
+    using difference_type = std::ptrdiff_t; 
     using pointer = value_type*; 
     using reference = value_type&; 
 
