@@ -82,7 +82,7 @@ public:
     using iterator = ArrayIterator; 
     //Normally there would also be a const_iterator 
 
-    (ArrayIterator begin(){ 
+    ArrayIterator begin(){ 
         return ArrayIterator(data.data());
     }
     ArrayIterator end(){ 
