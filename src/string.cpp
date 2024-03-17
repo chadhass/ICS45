@@ -130,7 +130,7 @@ bool String::operator>=(String s) const {
     return(strcmp(buf, s.buf) >= 0); 
 }
 
-String String::operator+(String s) const{
+String String::operator+(const String s) const{
     int length = this->size() + s.size(); 
     String res(length); 
     
@@ -140,7 +140,7 @@ String String::operator+(String s) const{
     return res; 
 }
 
-String&String::operator+=(String s){ 
+String&String::operator+=(const String s){ 
     int len = strlen(buf) + strlen(s.buf); 
     char *p = new char[len+1]; 
 
