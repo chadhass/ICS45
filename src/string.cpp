@@ -193,7 +193,7 @@ char *String::strcat(char *dest, const char *src){
 
 char *String::strncat(char *dest, con st char *src, int n){ 
     char *i = dest +strlen(dest); 
-    while(n--> 0 && src != '\0){ 
+    while(n--> 0 && src != '\0'){ 
         *i++ = *src++; 
     }
     i = '\0'; 
