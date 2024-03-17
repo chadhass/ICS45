@@ -140,8 +140,7 @@ const char *String::strstr(const char *haystack, const char *needle){
             return haystack;
         }
 
-        +
-        +haystack; 
+        ++haystack; 
     }
     return nullptr;
 }
