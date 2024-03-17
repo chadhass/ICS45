@@ -67,8 +67,8 @@ TEST(StringFunction, strncmp) {
     res1 = String::strncmp(res, cmp, 2); 
     EXPECT_EQ(res1, 0); 
 
-    char lres[10]; = "test"; 
-    char l = "testl"; 
+    char lres[10]  = "test"; 
+    char l[10] = "testl"; 
 
     res2 = String::Strncmp(1res, l, 5); 
     EXPECT_LT(res2,0); 
