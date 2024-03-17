@@ -28,14 +28,14 @@ TEST(StringFunction, strncpy) {
 TEST(StringFunction, strcat) {
     char src[MAXLEN] = "assign"; 
     char dest[MAXLEN] = "ment";
-    EXPECT_STREQ(String::strcat(dest, src), "assignment"); 
+    EXPECT_STREQ(String::strcat(dest, src), "mentassign"); 
 }
 
 TEST(StringFunction, strncat) {
     char src[MAXLEN] = "assign"; 
     char dest[MAXLEN] = "ment"; 
-    EXPECT_STREQ(String::strncat(dest, src, MAXLEN), "assignment"); 
-    EXPECT_STREQ(String::strncat(dest, src, 2), "assignmentme"); 
+    EXPECT_STREQ(String::strncat(dest, src, MAXLEN), "mentassign"); 
+    EXPECT_STREQ(String::strncat(dest, src, 2), "meantassignas"); 
 }
 
 TEST(StringFunction, strcmp) {
