@@ -115,7 +115,7 @@ bool String::operator!=(String s) const{
     return(strcmp(buf, s.buf) != 0); 
 }
 bool String::operator>(String s) const{
-    return(strcmp(buf,s.buf)>0); 
+    return(strcmp(buf,s.buf) >0); 
  }
 
 bool String::operator<(String s) const { 
@@ -131,7 +131,7 @@ bool String::operator>=(String s) const {
 }
 
 String String::operator+(String s) const{
-    int length = this-> size() + s.zie(); 
+    int length = this->size() + s.size(); 
     String res(length); 
     
     result.strcpy(res.buf, this->buf); 
@@ -142,7 +142,7 @@ String String::operator+(String s) const{
 
 String&String::operator+=(String s){ 
     int len = strlen(buf) + strlen(s.buf); 
-    char *p = ew char[len+1]; 
+    char *p = new char[len+1]; 
 
     strcpy(p, buf); 
     strcat(p, s.buf); 
@@ -191,18 +191,18 @@ char *String::strcat(char *dest, const char *src){
     return dest; 
 }
 
-char *String::strncat(char *dest, con st char *src, int n){ 
+char *String::strncat(char *dest, const char *src, int n){ 
     char *i = dest +strlen(dest); 
-    while(n--> 0 && src != '\0'){ 
+    while(n-- > 0 && src != '\0'){ 
         *i++ = *src++; 
     }
-    i = '\0'; 
+    *i = '\0'; 
     return dest; 
 }
 
 int String::strcmp(const char *left, const char *right){ 
     int i = 0; 
-    for(i=0; (left[i] != '\0'|| right[i] != '\0'); ++i){ 
+    for(i=0; (left[i] != '\0'&&  right[i] != '\0'); ++i){ 
         if(left[i] != right[i]){ 
             int res = left[i] - right[i]; 
             return res; 
@@ -251,9 +251,9 @@ const char *String::strstr(const char *haystack, const char *needle){
         if(!*n){ 
             return haystack;
         }
-        ++haystack
+        ++haystack; 
         }
-return nullptr; 
+    return nullptr; 
 }
 
 String::~String(){ 
