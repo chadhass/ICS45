@@ -142,13 +142,13 @@ int String::size() const{
 
 }
 
-String String::reverse(){
+String String::reverse() const{
     char *str; 
     reverse_cpy(str, buf); 
     return String(str); 
 }
 
-int String::indexOf(char s){
+int String::indexOf(char s) const {
 
     const char *num = strchr(buf, s); 
     if(num != nullptr)
@@ -157,7 +157,7 @@ int String::indexOf(char s){
     }
 }
 
-int String::indexOf(const String &s){
+int String::indexOf(const String &s) const {
     const char *num = strstr(buf, s.buf); 
     if(num != nullptr){
         return num-buf;
@@ -189,7 +189,7 @@ bool String::operator >=(const String &s) const{
 
 }
 
-String String::operator+(const String &s){
+String String::operator+(const String &s) const{
     String p; 
     strcpy(p.buf, buf); 
     strcat(p.buf, s.buf); 
@@ -218,7 +218,8 @@ void String::read(std::istream &in){
 }
 
 String::~String()
-{}
+{
+}
 std::ostream &operator<<(std::ostream &out, const String &s){
     s.print(out); 
     return out; 
