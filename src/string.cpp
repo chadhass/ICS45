@@ -229,7 +229,7 @@ const char *String::strchr(const char *str, char c){
     do{ 
         if(*str == c){ 
             return str; 
-        { 
+        }
     }
     while(*str++); 
 
@@ -244,15 +244,18 @@ const char *String::strstr(const char *haystack, const char *needle){
         const char *hay = haystack; 
         const char *n = needle; 
 
-        while(*n && *hay && *hay == *n){ 
+        while(*n && *hay && *hay == *n)
+        { 
             ++hay; 
             ++n; 
         }
-        if(!*n){ 
+        if(!*n)
+        { 
             return haystack;
         }
+
         ++haystack; 
-        }
+     }
     return nullptr; 
 }
 
