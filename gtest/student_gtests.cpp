@@ -60,8 +60,8 @@ TEST(StringFunction, strncmp) {
     char res[10]; 
     char cmp[10]; 
 
-    String::strncpy(res, "apple" MAXLEN); 
-    String::strncpy(cmp, "apply" MAXLEN); 
+    String::strncpy(res, "apple",  MAXLEN); 
+    String::strncpy(cmp, "apply",  MAXLEN); 
     int res1 = String::strncmp(res, cmp, 5); 
     EXPECT_EQ(res1, 10); 
 }
