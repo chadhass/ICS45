@@ -111,13 +111,14 @@ const char *String::strchr(const char *str, char c){
     return nullptr;
     }
 
-    while(*str !='\0'){
-    if(*str ==c){
-        return str; 
+    do{ 
+        if(*str == c){ 
+            return str; 
+        } 
     }
-    ++str; 
-    }
-    return nullptr; 
+    while(*str++); 
+
+    return nullptr;
 }
 
 const char *String::strstr(const char *haystack, const char *needle){
