@@ -177,7 +177,7 @@ int String::strlen(const char *s){
     }
     return i; 
 } 
-char *String::strcpy(char *dest, consrt char *src){ 
+char *String::strcpy(char *dest, const char *src){ 
     int i = 0; 
     while((dest[i]=src[i])!='\0'){ 
         i++;
