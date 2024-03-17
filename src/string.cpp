@@ -92,7 +92,7 @@ int String::indexOf(char c) const {
 int String::indexOf(const String &s) const{
     int len = this->size(); 
     int subStr = s.size();
-    for(int i = 0; i <len-sub; i++){ 
+    for(int i = 0; i <len-subStr; i++){ 
         bool ifound = true; 
             for(int j = 0; j < subStr; j++){ 
                 if(buf[i+j] !=s.buf[j]){ 
