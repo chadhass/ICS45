@@ -12,9 +12,6 @@ String::String(const String &s){
     if(strlen(s.buf)<MAXLEN){
     strncpy(buf, s.buf, MAXLEN-1); 
     }
-    else{
-        strncpy(buf, s.buf, MAXLEN-1); 
-    }
 }
 
 String &String::operator=(const String &s){
@@ -26,12 +23,7 @@ String &String::operator=(const String &s){
 }
 
 char &String::operator[](int index){
-    if(index >= 0 && index <strlen(buf)){
-    return buf[index]; 
-    }
-    else{
-    return buf[0]; 
-    }
+    return (index < strlen(buf)) ? buf[index] : buf[0]; 
 }
 
 int String::strlen(const char *s){
