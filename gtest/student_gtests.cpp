@@ -70,8 +70,8 @@ TEST(StringFunction, strncmp) {
     char lres[10]  = "test"; 
     char l[10] = "testl"; 
 
-    res1 = String::strncmp(1res, l, 5); 
-    EXPECT_LT(res2,0); 
+    res1 = String::strncmp(res1, l, 5); 
+    EXPECT_LT(res1,0); 
 }
 
 TEST(StringFunction, reverse_cpy) {
