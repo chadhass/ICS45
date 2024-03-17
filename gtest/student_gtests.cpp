@@ -35,7 +35,7 @@ TEST(StringFunction, strncat) {
     char src[MAXLEN] = "assign"; 
     char dest[MAXLEN] = "ment"; 
     EXPECT_STREQ(String::strncat(dest, src, MAXLEN), "assignment"); 
-    EXPECT_STREQ(String::strncat(dest, src, 2) "assignmentme"); 
+    EXPECT_STREQ(String::strncat(dest, src, 2), "assignmentme"); 
 }
 
 TEST(StringFunction, strcmp) {
