@@ -57,7 +57,9 @@ static const char *strchr(const char *str, char c);
 static const char *strstr(const char *haystack, const char *needle); 
 
 private: 
-char buf[MAXLEN]; 
+
+    char buf[MAXLEN];
+
 }; 
 
 std::ostream &operator<<(std::ostream &out, const String &s); 
