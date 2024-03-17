@@ -52,22 +52,57 @@ TEST(StringFunction, strcmp) {
     EXPECT_EQ(result2, 0); 
 
     String::strcpy(compare, "holly"); 
-    int res3 = String::strcmp(result, compare); 
+    int res3 = String::strcmp(res, cmp); 
     EXPECT_EQ(res3,-8); 
 }
 
 TEST(StringFunction, strncmp) {
-    EXPECT_TRUE(false);
+    char res[10]; 
+    char cmp[10]; 
+
+    String::strncpy(res, "apple" MAXLEN); 
+    String::strncpy(cmp, "apply" MAXLEN); 
+    int res1 = String::strncmp(res, cmp, 5); 
+    EXPECT_EQ(res1, 10); 
 }
 
 TEST(StringFunction, reverse_cpy) {
-    EXPECT_TRUE(false);
+    char res[10]; 
+    char rev[10]; 
+
+    String::strcpy(res, "hi"); 
+    String::reverse_cpy(rev, res); 
+    EXPECT_STREQ(rev, "ih"); 
 }
 
 TEST(StringFunction, strchr) {
-    EXPECT_TRUE(false);
+    const char test[20] =  "Hello World"; 
+    char lf = "W"; 
+
+    const char* res = String::strchr(test, lf); 
+
+    ASSERT_NE(res-test,0); 
+    EXPECT_EQ(res-test,6);  
+
+    res = String::strchr(test, 'A'); 
+
+    EXPECT_EQ(res, nullptr); 
+
+    res = String::strchr(test, '\0'); 
+    ASSERT_NE(res-test, 1); 
+    EXPECT_EQ(res-test, 11); 
+
 }
 
 TEST(StringFunction, strstr) {
-    EXPECT_TRUE(false);
+    const char haystack[20] = "Hello World"; 
+    const char needle[20] = "Wor"; 
+
+    const char* res = String::strstr(hatstack, needle); 
+
+    ASSERT_NE(res-haystack, 0); 
+    EXPECT_EQ(res-haystack, 6); 
+
+    res = String::strstr(haystack, "haystack"); 
+    EXPECT_EQ(result, nullptr; 
 }
