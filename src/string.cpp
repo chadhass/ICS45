@@ -53,7 +53,8 @@ char *String::strncpy(char *dest, const char *src, int n){
 
 char *String::strcat(char *dest, const char *src){
     int i = strlen(dest); 
-    for(int s = 0; src[s] != '\0'; ++s){
+    int s = 0;
+    for(s = 0; src[s] != '\0'; ++s){
         dest[i] = src[s]; 
         ++i;
         }
@@ -63,7 +64,8 @@ char *String::strcat(char *dest, const char *src){
 
 char *String::strncat(char *dest,const char *src, int n){
     int i = strlen(dest); 
-    for(int s = 0; src[s] != '\0' && s<n; ++s){
+    int s = 0; 
+    for(s = 0; src[s] != '\0' && s<n; ++s){
         dest[i] = src[s]; 
         ++i; 
     }
