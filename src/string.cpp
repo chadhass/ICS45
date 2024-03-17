@@ -87,7 +87,7 @@ int String::strcmp(const char *left, const char *right){
 
 int String::strncmp(const char *left, const char *right, int n){
     int i = 0; 
-    while(left[i] == right[i] && left[i] 1= '\0' && right[i] != '\0' && i<n){ 
+    while(left[i] == right[i] && left[i] != '\0' && right[i] != '\0' && i<n){ 
     ++; 
     }
     if(i==n)
