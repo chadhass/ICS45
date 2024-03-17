@@ -1,46 +1,68 @@
 #include "string.hpp"
+#include <iostream> 
+using namespace std; 
 
 String::String(const char *s){
-    buf = strdup(s);
+    if(s==nullptr || *s == '\0'){ 
+        buf = new char [1]; 
+        buf[0] = '\0'; 
+    } 
+    else { 
+        buf = strdup(s); 
+    }
 }
 
 String::String(const String &s){
     buf = strdup(s.buf); 
 }
 
+String::String(String && s) : buf(s.buf){ 
+    s.buf = nullptr; 
+}
+
+String::String(int length): buf(new char [length+1]){ 
+    buf[0] = '\0'; 
+}
 
 void String::swap(String &s){
-    char *temp = buf; 
-    buf = s.buf; 
-    s.buf = temp; 
+    std::swap(buf, s.buf); 
 }
 
 String &String::operator=(const String &s){
     if(this != &s)
-    { buf = strdup(s.buf); }
+    { 
+    delete[] buf; 
+    buf = strdup(s.buf); 
+    }
     return *this; 
 }
 
-String &String::operator==(String &&s){
-if(this != &s){
-buf = s.buf; 
-s.buf= nullpetr;
+String &String::operator=(String &&s){
+    if(this != &s){
+    delete [] buf; 
+    buf = s.buf; 
+    s.buf= nullpetr;
 }
 return *this; 
 }
 
-String::~String(){
-    delete[] buf; 
-}
 char &String::operator[](int index){
-    return buf[index]; 
+    if(in_bounds(index)){ 
+        return buf[index]; 
+    }
+    else{ 
+        return buf[0]; 
+    }
 }
 
 const char &String::operator[](int index) const{
-    return buf[index];
+    if(in_bounds(index)){ 
+        return buf[index]; 
     }
-
-
+    else{ 
+        return buf[0]; 
+    }
+}
 
 int String::size() const{
     return strlen(buf); 
@@ -48,38 +70,39 @@ int String::size() const{
 
 String String::reverse() const{
     int len = strlen(buf); 
-    String rev(len);
+    String reved(len);
     for(int i=0; i <len; ++i)
     {
-    rev.buf[i]=buf[len-i-1];
+        reved.buf[i]=buf[len-i-1];
     }
-    rev.buf[len] = '\0'; 
-    return rev; 
+    reved.buf[len] = '\0'; 
+    return reved; 
 }
 
 int String::indexOf(char c) const {
-    int len = size(); 
-    for(int i = 0; i <len; ++i)
+    for(int i = 0; buf[i] != '\0'; i++)
     {
-        if(buf[i]==c){
-            return i;
-            }
+        if(buf[i] == c){ 
+            return i; 
+        }
     }
     return -1; 
 }
 
-int String::indexOf(String s) const{
-    int len = size(); 
+int String::indexOf(const String &s) const{
+    int len = this->size(); 
     int subStr = s.size();
-    for(int i = 0; i <len-subStr; ++i){
-    int j; 
-    for(int j = 0; j < subStr; ++j)
-    { 
-        if(buf[i+j] != s[j]){
-        break;
+    for(int i = 0; i <len-sub; i++){ 
+        bool ifound = true; 
+            for(int j = 0; j < subStr; j++){ 
+                if(buf[i+j] !=s.buf[j]){ 
+                    ifound = false; 
+                    break;
+                }
+            if(ifound){ 
+                return i; 
+            }
         }
-    }
-    if(j ==subStr){ return i;}
     }
     return -1; 
 }
@@ -87,6 +110,9 @@ int String::indexOf(String s) const{
 bool String::operator ==(String s) const {
     return(strcmp(buf, s.buf)==0); 
 }
+
+bool String::operator!=(String s) const{ 
+    return(strcmp(buf, s.buf) != 0); 
 
 bool String::operator>(String s) const{
     return(strcmp(buf,s.buf)>0); 
@@ -105,93 +131,141 @@ bool String::operator>=(String s) const {
 }
 
 String String::operator+(String s) const{
-    int length = this-> size();
-    int length2 = s.size();
-    char *newStr = new char[length +length2 +1]; 
+    int length = this-> size() + s.zie(); 
+    String res(length); 
+    
+    result.strcpy(res.buf, this->buf); 
+    result.strcat(res.buf +this->size(), s.buf); 
 
-    for(int i = 0; i <length; ++i){
-    newStr[i] = this->buf[i]; 
-    }
-    for(int i = 0; i < length2; ++i){
-    newStr[length +i] = s.buf[i];
-    }
-
-    newStr[length + length2] = '\0';
-
-    String newString(newStr); 
-
-    return newString; 
+    return res; 
 }
 
 String&String::operator+=(String s){ 
-    *this = *this + s; 
+    int len = strlen(buf) + strlen(s.buf); 
+    char *p = ew char[len+1]; 
+
+    strcpy(p, buf); 
+    strcat(p, s.buf); 
+
+    delete[] buf; 
+    buf = p; 
     return *this; 
 }
 
+void String::print(std::ostream & out) const{ 
+    out <<buf; 
+}
+void String::read(std::istream &in){ 
+    char store[2048]; 
+    in >> store; 
+    delete[] buf; 
+    buf = strdup(store); 
+}
 
 char *String::strdup(const char *src) {
     int len = strlen(src) +1; 
-    char* str = new char[len]; 
+    char *str = new char[len]; 
 
     strcpy(str,src);
 
     return str; 
 }
 int String::strlen(const char *s){
-int i =0; 
-while(s[i] != '\0'){
-i++;
-}
-return i; 
+    int i =0; 
+    while(s[i] != '\0'){
+    i++;
+    }
+    return i; 
 } 
+char *String::strcpy(char *dest, consrt char *src){ 
+    int i = 0; 
+    while((dest[i]=src[i])!='\0'){ 
+        i++;
+        }
+        return dest; 
+}
+
+char *String::strcat(char *dest, const char *src){ 
+    int l = strlen(dest); 
+    strcpy(dest+l;, src); 
+    return dest; 
+}
+
+char *String::strncat(char *dest, con st char *src, int n){ 
+    char *i = dest +strlen(dest); 
+    while(n--> 0 && src != '\0){ 
+        *i++ = *src++; 
+    }
+    i = '\0'; 
+    return dest; 
+}
+
+int String::strcmp(const char *left, const char *right){ 
+    int i = 0; 
+    for(i=0; (left[i] != '\0'|| right[i] != '\0'); ++i){ 
+        if(left[i] != right[i]){ 
+            int res = left[i] - right[i]; 
+            return res; 
+        }
+    }
+    return 0; 
+}
+
+void String::reverse_cpy(char *dest, const char *src) {
+    int i =0; 
+    int s = String::strlen(src)-1; 
+    for(s = String::strlen(src)-1; s >= 0; s--){ 
+        dest[i] = src[s]; 
+        i++; 
+    }
+
+    dest[i] = '\0'; 
+}
 
 const char *String::strchr(const char *str, char c){
-    while(*str != '\0'){
-        if(*str == c){
-            return str; 
-            }
-            ++str; 
-        }
+    if(str == nullptr){ 
         return nullptr; 
+    }
+    do{ 
+        if(*str == c){ 
+            return str; 
+        { 
+    { 
+    while(*str++); 
+
+    return nullptr; 
 }
 
-const char  *String::strstr(const char *haystack, const char *needle){
-    int needleLen = 0;  
-    while(needle[needleLen] != '\0'){
-    ++needleLen; 
-    }
+const char *String::strstr(const char *haystack, const char *needle){
+    if(!needle || !*needle){ 
+        return haystack; 
+    } 
+    while(*haystack){ 
+        const char *hay = haystack; 
+        const char *n = needle; 
 
-    int haystackLen = 0; 
-    while(haystack[haystackLen] != '\0') {
-        int i = 0; 
-        while(haystack[haystackLen +i]  == needle[i]){
-        ++i; 
-        if(needle[i] == '\0'){
-        return haystack + haystackLen; 
+        while(*n && *hay && *hay == *n){ 
+            ++hay; 
+            ++n; 
         }
+        if(!*n){ 
+            return haystack;
         }
-       ++haystackLen;
-    }
+        ++haystack
+        }
 return nullptr; 
 }
 
-String::String(int length) {
-    buf = new char[length +1]; 
-    buf[0] = '\0'; 
+String::~String(){ 
+    delete[] buf;
 }
 
-void Sring::print(strd::ostream &out) const{ out <<buf; }
-
-void String::read(std::istream &in){
-    buf = stdup[2048]; }
-
-char stdup(const char *src) {
-    int length = strlen(src) + 1; 
-    char * str = new char[length]; 
-
-    strcpy(str,src)
-
-    return str; 
+std::istream &operator>>(std::istream &in, String &s){ 
+    s.read(in); 
+    return in; 
 }
 
-
+std::ostream &operator<<(std::ostream &out, String s){ 
+    s.print(out); 
+    return out; 
+}
