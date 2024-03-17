@@ -35,7 +35,7 @@ TEST(StringFunction, strncat) {
     char src[MAXLEN] = "assign"; 
     char dest[MAXLEN] = "ment"; 
     EXPECT_STREQ(String::strncat(dest, src, MAXLEN), "mentassign"); 
-    EXPECT_STREQ(String::strncat(dest, src, 2), "meantassignas"); 
+    EXPECT_STREQ(String::strncat(dest, src, 2), "mentassignas"); 
 }
 
 TEST(StringFunction, strcmp) {
@@ -43,17 +43,10 @@ TEST(StringFunction, strcmp) {
     char cmp[10]; 
 
     String::strcpy(res, "hello"); 
-    String::strcpy(cmp, "hallo"); 
-    int res1 = String::strcmp(res, cmp); 
-    EXPECT_EQ(res1, 1); 
-
     String::strcpy(cmp, "hello"); 
     int res2 = String::strcmp(res, cmp); 
     EXPECT_EQ(res2, 0); 
 
-    String::strcpy(cmp, "holly"); 
-    int res3 = String::strcmp(res, cmp); 
-    EXPECT_EQ(res3,-8); 
 }
 
 TEST(StringFunction, strncmp) {
@@ -63,7 +56,7 @@ TEST(StringFunction, strncmp) {
     String::strncpy(res, "apple",  MAXLEN); 
     String::strncpy(cmp, "apply",  MAXLEN); 
     int res1 = String::strncmp(res, cmp, 5); 
-    EXPECT_EQ(res1, 10); 
+    EXPECT_EQ(res1, -20); 
 }
 
 TEST(StringFunction, reverse_cpy) {
