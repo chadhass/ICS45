@@ -154,9 +154,11 @@ int String::size() const{
 }
 
 String String::reverse() const{
-    char *str; 
+    char *str = new char[MAXLEN]; 
     reverse_cpy(str, buf); 
-    return String(str); 
+    String str(*str); 
+    delete[] str; 
+    return str; 
 }
 
 int String::indexOf(char s) const {
