@@ -16,13 +16,13 @@ String &operator=(const String &s);
 
 char &operator[](int index); 
 
-int size(); 
+int size() const;
 
-String reverse();
+String reverse() const;
 
-int indexOf(char c); 
+int indexOf(char c) const; 
 
-int indexOf(const String &s); 
+int indexOf(const String &s) const; 
 
 bool operator==(const String &s) const; 
 bool operator!=(const String &s) const; 
@@ -31,18 +31,19 @@ bool operator<(const String &s) const;
 bool operator<=(const String &s) const; 
 bool operator>=(const String &s) const; 
 
-String operator+(const String &s); 
+String operator+(const String &s) const; 
 
 String &operator+=(const String &s); 
 
 void print(std::ostream &out) const; 
 
 void read(std::istream &in); 
+
 ~String(); 
 
 bool in_bounds(int i) { 
     return i >=0 && i <strlen(buf); 
-}
+i}
 
 static int strlen(const char *s); 
 static char *strcpy(char *dest, const char *src); 

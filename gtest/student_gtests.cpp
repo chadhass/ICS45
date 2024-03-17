@@ -12,27 +12,48 @@ TEST(StringFunction, strcpy) {
     EXPECT_EQ(String::strcpy(result, "foo"), result);
     EXPECT_STREQ(result, "foo");
 
-    EXPECT_EQ(String::strcpy(result, "a"), result);
-    EXPECT_STREQ(result, "a");
+    EXPECT_EQ(String::strcpy(result, "c"), result);
+    EXPECT_STREQ(result, "c");
 
     EXPECT_EQ(String::strcpy(result, ""), result);
     EXPECT_STREQ(result, "");
 }
 
 TEST(StringFunction, strncpy) {
-    EXPECT_TRUE(false);
+    char result[MAXLEN]; 
+    EXPECT_STREQ(String::strncpy(result, "code", MAXLEN), "code"); 
+    EXPECT_STREQ(String::strncpy(result, "hello", MAXLEN), "hello"); 
 }
 
 TEST(StringFunction, strcat) {
-    EXPECT_TRUE(false);
+    char src[MAXLEN] = "assign"; 
+    char dest[MAXLEN] = "ment";
+    EXPECT_STREQ(String::strcat(dest, src), "assignment"); 
 }
 
 TEST(StringFunction, strncat) {
-    EXPECT_TRUE(false);
+    char src[MAXLEN] = "assign"; 
+    char dest[MAXLEN] = "ment"; 
+    EXPECT_STREQ(String::strncat(dest, src, MAXLEN), "assignment"); 
+    EXPECT_STREQ(String::strncat(dest, src, 2) "assignmentme"); 
 }
 
 TEST(StringFunction, strcmp) {
-    EXPECT_TRUE(false);
+    char res[10]; 
+    char cmp[10]; 
+
+    String::strcpy(res, "hello"); 
+    String::strcpy(cmp, "hallo"); 
+    int res1 = String::strcmp(res, cmp); 
+    EXPECT_EQ(res1, 1); 
+
+    String::strcpy(compare, "hello"); 
+    int res2 = String::strcmp(res, cmp); 
+    EXPECT_EQ(result2, 0); 
+
+    String::strcpy(compare, "holly"); 
+    int res3 = String::strcmp(result, compare); 
+    EXPECT_EQ(res3,-8); 
 }
 
 TEST(StringFunction, strncmp) {
