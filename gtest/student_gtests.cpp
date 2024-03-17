@@ -97,5 +97,9 @@ TEST(StringFunction, strstr) {
     EXPECT_EQ(res-haystack, 7); 
 
     res = String::strstr(haystack, "needle"); 
-    EXPECT_EQ(res, nullptr); 
+    EXPECT_EQ(res, nullptr);
+
+    res = String::str(haystack,""); 
+    ASSERT_NE(res-haystack, 12); 
+    EXPECT_EQ(res-haystack,0); 
 }
