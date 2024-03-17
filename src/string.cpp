@@ -121,10 +121,10 @@ const char *String::strchr(const char *str, char c){
 }
 
 const char *String::strstr(const char *haystack, const char *needle){
-
     if(!needle || !*needle){ 
         return haystack; 
-    } 
+    }
+
     while(*haystack){
         const char *hay = haystack;  
         const char *n = needle; 
@@ -133,6 +133,7 @@ const char *String::strstr(const char *haystack, const char *needle){
             ++hay;
             ++n; 
         } 
+
         if(!*n){ 
             return haystack;
         }
@@ -159,6 +160,9 @@ int String::indexOf(char s) const {
     {
         return num-buf; 
     }
+    else{ 
+        return -1; 
+    }
 }
 
 int String::indexOf(const String &s) const {
@@ -166,6 +170,10 @@ int String::indexOf(const String &s) const {
     if(num != nullptr){
         return num-buf;
     }
+    else{ 
+        return -1; 
+    }
+    
 }
 
 bool String::operator==(const String &s) const { 
