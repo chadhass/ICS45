@@ -41,7 +41,7 @@ String &String::operator=(String &&s){
     if(this != &s){
     delete [] buf; 
     buf = s.buf; 
-    s.buf= nullpetr;
+    s.buf= nullptr;
 }
 return *this; 
 }
