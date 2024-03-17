@@ -99,7 +99,7 @@ TEST(StringFunction, strstr) {
     res = String::strstr(haystack, "needle"); 
     EXPECT_EQ(res, nullptr);
 
-    res = String::str(haystack,""); 
+    res = String::strstr(haystack,""); 
     ASSERT_NE(res-haystack, 12); 
     EXPECT_EQ(res-haystack,0); 
 }
