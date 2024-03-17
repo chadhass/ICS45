@@ -134,8 +134,8 @@ String String::operator+(String s) const{
     int length = this->size() + s.size(); 
     String res(length); 
     
-    result.strcpy(res.buf, this->buf); 
-    result.strcat(res.buf +this->size(), s.buf); 
+    res.strcpy(res.buf, this->buf); 
+    res.strcat(res.buf +this->size(), s.buf); 
 
     return res; 
 }
