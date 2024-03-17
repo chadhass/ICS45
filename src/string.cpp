@@ -191,10 +191,15 @@ bool String::operator >=(const String &s) const{
 
 String String::operator+(const String &s) const{
     String p; 
-    strcpy(p.buf, buf); 
-    strcat(p.buf, s.buf); 
-    if(strlen(p.buf) >MAXLEN) {
-        p.buf[MAXLEN-1] = '\0'; 
+    int len = strlen(buf) + strlen(s.buf); 
+
+    if(len > MAXLEN -1){ 
+        strncpy(p.buf, buf, MAXLEN-1); 
+
+        p.buf[MAXLEN-1] = '0'; 
+    } else{ 
+        strcpy(p.buf, buf); 
+        strcat(p.buf, s.buf); 
     }
 
     return p; 
