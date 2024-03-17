@@ -86,7 +86,7 @@ int String::indexOf(char c) const {
             return i; 
         }
     }
-    return -1; 
+    return 0; 
 }
 
 int String::indexOf(const String &s) const{
