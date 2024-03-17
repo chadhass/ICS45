@@ -5,9 +5,7 @@ using namespace std;
 #include "string.hpp"
 
 String::String(const char *s){
-    if(s &&strlen(s) < MAXLEN){
     strncpy(buf, s, MAXLEN-1); 
-    }
 }
 
 String::String(const String &s){
@@ -56,7 +54,7 @@ char *String::strcpy(char *dest, const char *src){
 
 char *String::strncpy(char *dest, const char *src, int n){
     int i = 0; 
-    for(i = 0; i < n && src[i] != '\0'; ++i){
+    for(;src[i] != '\0' && i <n; ++i){
         dest[i] = src[i];
     }
     dest[i] = '\0'; 
