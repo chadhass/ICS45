@@ -42,6 +42,11 @@ TEST(StringFunction, strcmp) {
     char res[10]; 
     char cmp[10]; 
 
+    String::strcpy(res, "foo"); 
+    String::strcpy(cmp, "fob"); 
+    int res1 = String::strcmp(res, cmp); 
+    EXPECT_EQ(res1, 13); 
+
     String::strcpy(res, "hello"); 
     String::strcpy(cmp, "hello"); 
     int res2 = String::strcmp(res, cmp); 
