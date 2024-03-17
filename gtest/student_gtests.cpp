@@ -70,7 +70,7 @@ TEST(StringFunction, strncmp) {
     char lres[10]  = "test"; 
     char l[10] = "testl"; 
 
-    res1 = String::strncmp(res1, l, 5); 
+    res1 = String::strncmp(lres, l, 5); 
     EXPECT_LT(res1,0); 
 }
 
