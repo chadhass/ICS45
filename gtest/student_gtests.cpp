@@ -47,11 +47,11 @@ TEST(StringFunction, strcmp) {
     int res1 = String::strcmp(res, cmp); 
     EXPECT_EQ(res1, 1); 
 
-    String::strcpy(compare, "hello"); 
+    String::strcpy(cmp, "hello"); 
     int res2 = String::strcmp(res, cmp); 
     EXPECT_EQ(result2, 0); 
 
-    String::strcpy(compare, "holly"); 
+    String::strcpy(cmp, "holly"); 
     int res3 = String::strcmp(res, cmp); 
     EXPECT_EQ(res3,-8); 
 }
@@ -77,7 +77,7 @@ TEST(StringFunction, reverse_cpy) {
 
 TEST(StringFunction, strchr) {
     const char test[20] =  "Hello World"; 
-    char lf = "W"; 
+    char lf = 'W'; 
 
     const char* res = String::strchr(test, lf); 
 
@@ -104,5 +104,5 @@ TEST(StringFunction, strstr) {
     EXPECT_EQ(res-haystack, 6); 
 
     res = String::strstr(haystack, "haystack"); 
-    EXPECT_EQ(result, nullptr; 
+    EXPECT_EQ(res, nullptr); 
 }
