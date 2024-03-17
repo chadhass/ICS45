@@ -221,7 +221,7 @@ int String::strcmp(const char *left, const char *right){
     return 0; 
 }
 
-int String::strncmp(const char *left, const char 8right, int n){ 
+int String::strncmp(const char *left, const char *right, int n){ 
     while(*left==*right && *left != '\0'){ 
         ++left; 
         ++right; 
