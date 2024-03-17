@@ -36,7 +36,9 @@ char res[10];
 }
 
 TEST(StringFunction, strcat) {
-    EXPECT_TRUE(false);
+    int MAXLEN 1024; 
+    char res = "res"; 
+    EXPECT_STREQ(String::strncpy(res, "hi", MAXLEN), "hi"); 
 }
 
 TEST(StringFunction, strncat) {
