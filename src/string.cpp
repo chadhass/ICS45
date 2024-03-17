@@ -88,7 +88,7 @@ int String::strcmp(const char *left, const char *right){
 int String::strncmp(const char *left, const char *right, int n){
     int i = 0; 
     while(left[i] == right[i] && left[i] != '\0' && right[i] != '\0' && i<n){ 
-    ++; 
+    ++i; 
     }
     if(i==n)
     return 0; 
@@ -121,10 +121,23 @@ const char *String::strchr(const char *str, char c){
 }
 
 const char *String::strstr(const char *haystack, const char *needle){
-    while(*haystack &&strncmp(haystack, needle, (strlen(needle)) != 0)){
-        ++haystack; 
+
+    if(!needle || !*needle){ 
+        return haystack; 
+    } 
+    while(*haystack){
+        const char *hay = haystack 
+        const char *n = needle; 
+
+        while(*n && *hay && *hay == *n){ 
+            ++hay
+            ++n 
+        } 
+        if(!*n){ 
+            return haystack
         }
-    return *haystack ? haystack : nullptr; 
+    }
+    return nullptr
 }
 
 int String::size() const{ 
