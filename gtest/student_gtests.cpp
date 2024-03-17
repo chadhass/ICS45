@@ -49,7 +49,7 @@ TEST(StringFunction, strcmp) {
 
     String::strcpy(cmp, "hello"); 
     int res2 = String::strcmp(res, cmp); 
-    EXPECT_EQ(result2, 0); 
+    EXPECT_EQ(res2, 0); 
 
     String::strcpy(cmp, "holly"); 
     int res3 = String::strcmp(res, cmp); 
