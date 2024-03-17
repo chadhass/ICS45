@@ -27,12 +27,10 @@ char &String::operator[](int index){
 }
 
 int String::strlen(const char *s){
-    int length = 0; 
-    while(*s != '\0'){
-        ++length; 
-        ++s; 
-        }
-        return length; 
+    int i  = 0; 
+    for(i=0; s[i] != '\0'; ++i){
+    } 
+    return 1; 
 }
 
 char *String::strcpy(char *dest, const char *src){
