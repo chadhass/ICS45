@@ -24,11 +24,15 @@ TEST(StringFunction, strcpy) {
 }
 
 TEST(StringFunction, strdup) {
-    EXPECT_TRUE(false);
+    EXPECT_EQ(String::strlen(""), 0); 
+    EXPECT_EQ(String::strlen("hello",5); 
+    EXPECT_EQ(Strng::strlen("s"), 1); 
 }
 
 TEST(StringFunction, strncpy) {
-    EXPECT_TRUE(false);
+char res[10]; 
+    EXPECT_EQ(String::strcpy(res, "hi", res); 
+    EXPECT_STREQ(result, "hi"); 
 }
 
 TEST(StringFunction, strcat) {
