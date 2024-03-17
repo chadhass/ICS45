@@ -23,22 +23,24 @@ TEST(StringFunction, strcpy) {
     EXPECT_STREQ(result, "");
 }
 
-TEST(StringFunction, strdup) {
-    EXPECT_EQ(String::strlen(""), 0); 
-    EXPECT_EQ(String::strlen("hello",5); 
-    EXPECT_EQ(Strng::strlen("s"), 1); 
+TEST(StringFunction, strdup){ 
+    char src[] = "World"; 
+    char *p = src; 
+    EXPECT_STREQ(strdup(p),p); 
+    EXPECT_NE(strdup(p),p); 
 }
 
 TEST(StringFunction, strncpy) {
+int MAXLEN = 1024; 
 char res[10]; 
     EXPECT_EQ(String::strcpy(res, "hi", res); 
     EXPECT_STREQ(result, "hi"); 
 }
 
 TEST(StringFunction, strcat) {
-    int MAXLEN 1024; 
-    char res = "res"; 
-    EXPECT_STREQ(String::strncpy(res, "hi", MAXLEN), "hi"); 
+    char src[] = "World"; 
+    char dest[] ="Hi"; 
+    EXPECT_STREQ(String::strncpy(res, dest,src,MAXLEN), "HiWorld"); 
 }
 
 TEST(StringFunction, strncat) {
