@@ -126,18 +126,18 @@ const char *String::strstr(const char *haystack, const char *needle){
         return haystack; 
     } 
     while(*haystack){
-        const char *hay = haystack 
+        const char *hay = haystack;  
         const char *n = needle; 
 
         while(*n && *hay && *hay == *n){ 
-            ++hay
-            ++n 
+            ++hay;
+            ++n; 
         } 
         if(!*n){ 
-            return haystack
+            return haystack;
         }
     }
-    return nullptr
+    return nullptr;
 }
 
 int String::size() const{ 
