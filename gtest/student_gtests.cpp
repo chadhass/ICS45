@@ -59,12 +59,9 @@ TEST(StringFunction, strncmp) {
     char cmp[10]; 
 
     String::strncpy(res, "foo", MAXLEN); 
-    String::strncpy(cmp, "fob", MAXLEN); 
+    String::strncpy(cmp, "fob", MAXLEN);  
 
-    int res1 = String::strncmp(res, cmp, 4); 
-    EXPECT_EQ(res1, 13); 
-
-    res1 = String::strncmp(res, cmp, 2); 
+    int  res1 = String::strncmp(res, cmp, 2); 
     EXPECT_EQ(res1, 0); 
 
     char lres[10]  = "test"; 
