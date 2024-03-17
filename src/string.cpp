@@ -122,6 +122,7 @@ const char *String::strchr(const char *str, char c){
 }
 
 const char *String::strstr(const char *haystack, const char *needle){
+
     if(!needle || !*needle){ 
         return haystack; 
     }
@@ -138,6 +139,9 @@ const char *String::strstr(const char *haystack, const char *needle){
         if(!*n){ 
             return haystack;
         }
+
+        +
+        +haystack; 
     }
     return nullptr;
 }
