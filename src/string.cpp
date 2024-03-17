@@ -187,7 +187,7 @@ char *String::strcpy(char *dest, const char *src){
 
 char *String::strcat(char *dest, const char *src){ 
     int l = strlen(dest); 
-    strcpy(dest+l;, src); 
+    strcpy(dest+l, src); 
     return dest; 
 }
 
@@ -230,7 +230,7 @@ const char *String::strchr(const char *str, char c){
         if(*str == c){ 
             return str; 
         { 
-    { 
+    }
     while(*str++); 
 
     return nullptr; 
