@@ -88,14 +88,14 @@ TEST(StringFunction, strchr) {
 }
 
 TEST(StringFunction, strstr) {
-    const char haystack[20] = "Hello World"; 
+    const char haystack[20] = "Hello, World"; 
     const char needle[20] = "Wor"; 
 
     const char* res = String::strstr(haystack, needle); 
 
     ASSERT_NE(res-haystack, 0); 
-    EXPECT_EQ(res-haystack, 6); 
+    EXPECT_EQ(res-haystack, 7); 
 
-    res = String::strstr(haystack, "haystack"); 
+    res = String::strstr(haystack, needle"); 
     EXPECT_EQ(res, nullptr); 
 }
