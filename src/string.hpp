@@ -43,7 +43,7 @@ void read(std::istream &in);
 
 bool in_bounds(int i) { 
     return i >=0 && i <strlen(buf); 
-i}
+}
 
 static int strlen(const char *s); 
 static char *strcpy(char *dest, const char *src); 
